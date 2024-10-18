@@ -1,5 +1,6 @@
 # dotfiles
 my main Arch Linux desktop environment
+
 also my NixOS Configuration (under construction)
 
 ## info
