@@ -1,0 +1,43 @@
+* {
+    font-family: JetBrains Mono SemiBold;
+    font-size: 12px;
+}
+window#waybar {
+    background-color: #181616;
+}
+
+button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 0;
+}
+
+#tags button {
+    padding: 5px 10px;
+    color: #767976;
+}
+#tags button.focused {
+    color: #24283b;
+    background-color: #5d5c5c;
+}
+#tags button.occupied {
+  color: #c5c9c5;
+}
+#tags button:hover {
+	background-color: #c0caf5;
+	color: #c0caf5;
+}
+
+#tray, #pulseaudio, #network, #battery {
+    color: #c5c9c5;
+    margin-right: 4px;
+    margin-left: 10px;
+}
+#clock {
+    color: #c5c9c5;
+}
+#notification {
+  padding: 5px 10px;
+  color: #c5c9c5;
+}
+

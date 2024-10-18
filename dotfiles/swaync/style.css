@@ -1,0 +1,381 @@
+/*
+ * vim: ft=less
+ */
+
+
+ @define-color base   #181616;
+ @define-color surface #282525;
+ 
+ @define-color text     #e0def4;
+ @define-color muted    #747373;
+ 
+ @define-color overlay #2f2d2d;
+ @define-color pumice  #c5c9c5;
+ 
+ * {
+  font-size: 14px;
+  font-family: "JetBrains Mono";
+}
+
+.notification-row {
+  outline: none;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+  background: @base;
+}
+
+.notification {
+  border-radius: 0px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  border: 5px solid #d1d4d1;
+  padding: 0;
+}
+
+/* 
+.low {
+  background: #21202e;
+  border-radius: 2px;
+}
+
+.normal {
+  background: #403d52;
+  border-radius: 2px;
+}
+
+.critical {
+  background: #524f67;
+  border-radius: 2px;
+}
+ */
+
+.notification-content {
+  background: transparent;
+  padding: 16px;
+  border-radius: 0px;
+}
+
+.close-button {
+  background: transparent;
+  color: transparent;
+}
+
+.close-button:hover {
+  box-shadow: none;
+  background: none;
+  border: none;
+}
+
+.notification-default-action,
+.notification-action {
+  transition: all 200ms ease;
+  padding: 1px;
+  margin: 0px;
+  box-shadow: none;
+  background: @base;
+  color: @text;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  -gtk-icon-effect: none;
+  background: @overlay;
+}
+
+.notification-default-action {
+  border-radius: 0px;
+}
+
+/* When alternative actions are visible */
+.notification-default-action:not(:only-child) {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.notification-action {
+  border-radius: 0px;
+  border-top: none;
+  border-right: none;
+}
+
+/* add bottom border radius to eliminate clipping */
+.notification-action:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.notification-action:last-child {
+  border-bottom-right-radius: 10px;
+  border-right: 1px solid @pumice
+}
+
+.image {
+  
+}
+
+.body-image {
+  margin-top: 4px;
+  background-color: @text;
+  border-radius: 0px;
+}
+
+.summary {
+  font-size: 14px;
+  font-weight: bolder;
+  background: transparent;
+  color: @pumice;
+  text-shadow: none;
+}
+
+.time {
+  font-size: 12px;
+  font-weight: bold;
+  background: transparent;
+  color: @pumice;
+  text-shadow: none;
+  margin-right: 18px;
+}
+
+.body {
+  font-size: 13px;
+  font-weight: normal;
+  background: transparent;
+  color: @pumice;
+  text-shadow: none;
+}
+
+/* The "Notifications" and "Do Not Disturb" text widget */
+.top-action-title {
+  color: @text;
+  text-shadow: none;
+}
+
+.control-center {
+  border-radius: 0px;
+  background: @base;
+  padding: 14px;
+}
+
+.control-center .notification-row .notification-background .notification {
+  border-radius: 0px;
+  color: @text;
+  background-color: transparent;
+}
+
+.control-center .notification-row .notification-background .notification:hover {
+  box-shadow: inset 0 0 0 1px #45475a;
+  background-color: red;
+  color: #cdd6f4;
+}
+.control-center .notification-normal .notification-background:active {
+  box-shadow: inset 0 0 0 1px #45475a;
+  background-color: #74c7ec;
+  color: #cdd6f4;
+}
+
+.control-center-list  {
+  background: transparent;
+}
+
+.floating-notifications {
+  background: transparent;
+}
+
+/* Window behind control center and on all other monitors */
+.blank-window {
+  background: transparent;
+}
+
+/*** Widgets ***/
+
+/* Title widget */
+.widget-title {
+  margin-left: 8px;
+  margin-right: 7px;
+
+  font-size: 1.5rem;
+}
+.widget-title > button {
+  font-size: initial;
+  color: @text;
+  text-shadow: none;
+  background: @base;
+  box-shadow: none;
+  padding-left: 4px;
+  padding-right: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border-radius: 0px;
+}
+.widget-title > button:hover {
+  background: @overlay;
+}
+
+/* DND widget */
+.widget-dnd {
+  margin: 8px;
+  margin-bottom: 14px;
+  font-size: 1.1rem;
+}
+.widget-dnd > switch {
+  font-size: initial;
+  border-radius: 0px;
+  background: @base;
+  border: 2px solid @pumice;
+  box-shadow: none;
+}
+.widget-dnd > switch:checked {
+  background: @pumice;
+
+}
+.widget-dnd > switch slider {
+  background: @pumice;
+  border-radius: 0px;
+}
+
+/* Label widget */
+.widget-label {
+  margin: 8px;
+  margin-bottom: 14px;
+}
+.widget-label > label {
+  font-size: 13px;
+}
+
+/* Mpris widget */
+.widget-mpris {
+  /* The parent to all players */
+  margin: -8px 0px 0px 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+}
+.widget-mpris-player {
+ /* border-top-left-radius: 5px;
+  border-top-right-radius: 5px; */
+  padding: 20px;
+  background-color: @surface;
+  border-radius: 0px;
+}
+.widget-mpris-title {
+  font-weight: bold;
+  font-size: 16px;
+  color: @pumice;
+}
+.widget-mpris-subtitle {
+  font-size: 13px;
+  color: @pumice;
+
+}
+
+progressbar {
+  box-shadow: inset 0 0 0 1px #45475a;
+}
+.notification.low progress,
+.notification.normal progress {
+  background-color: @pumice;
+}
+
+trough {
+  background-color: @overlay;
+}
+
+
+progressbar,
+progress,
+trough {
+  border-radius: 0px;
+}
+
+/* Volume and Brightness Widget*/
+
+.widget-volume {
+  background-color: @surface;
+  color: @pumice;
+  padding: 4px 8px 8px 8px;
+  margin: 0px 8px 8px 8px;
+  border-radius: 0px;
+}
+
+
+.widget-backlight {
+  background-color: @surface;
+  color: @pumice;
+  padding: 8px 8px 4px 8px;
+  margin: 0px 8px 8px 8px;
+  border-radius: 0px;
+}
+
+.power-buttons{
+  background-color: transparent;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 0px;
+}
+
+.power-buttons>button {
+  background: transparent;
+  border: none;
+}
+
+.power-buttons>button:hover {
+  background: @surface;
+
+}
+
+.widget-menubar>box>.menu-button-bar>button{
+  border: none;
+  background: @overlay;
+  margin: 4px;
+  border-radius: 0px;
+
+}
+
+.topbar-buttons>button{
+  border: none;
+  background: transparent;
+  margin: 4px;
+  border-radius: 0px;
+
+
+}
+
+.amogus>button{
+  border: none;
+  background: @overlay;
+  border-radius: 0px;
+  margin: 4px;
+}
+
+.widget-buttons-grid{
+  padding: 8px;
+  margin: 80px;
+  border-radius: 0px;
+  background-color: @overlay;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button{
+  background: @overlay;
+  border-radius: 0px;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+  background: @muted;
+}
+
+.powermode-buttons{
+  background-color: @overlay;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 0px;
+}
+
+.powermode-buttons>button {
+  background: transparent;
+  border: none;
+}
+
+.powermode-buttons>button:hover {
+  background: @noti-bg-hover;
+}

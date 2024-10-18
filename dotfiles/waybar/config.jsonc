@@ -1,0 +1,91 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 32, // Waybar height (to be removed for auto height)
+    // "width": 1080, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+
+"modules-left": [
+    "river/tags", "river/window"
+    ],
+    "modules-center": [ 
+	"clock"
+    ],
+    "modules-right": [
+    "tray", "pulseaudio", "network", "battery", "custom/notification"
+    ],
+    
+    "clock": {
+    "format": "{:%b %d, %I:%M %p}"
+    },
+
+    "wlr/taskbar": {
+    "format": "{app_id}",
+    "on-click": "minimize-raise",
+    "on-click-right": "close",
+    "ignore-list": [
+      "kitty"
+    ]
+    },
+
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "<span></span>  Connected",
+        "format-ethernet": "<span></span>  Connected",
+        "tooltip-format": "{ifname} via {gwaddr} at {signalStrength}%",
+        "format-linked": "<span>⚠</span> {ifname} (No IP)",
+        "format-disconnected": "<span>⚠</span> Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+
+    "tray": {
+        "spacing": 10
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+        },
+
+  "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "tooltip": false,
+        "format-muted": "  Muted",
+        "on-click": "pavucontrol",
+        "on-click-right": "pamixer -t",
+        "on-scroll-up": "pamixer -i 10",
+        "on-scroll-down": "pamixer -d 10",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["","", "", ""]
+        }
+    },
+
+  "river/tags": {
+    "num-tags": 9
+  },
+  "river/window": {
+    "format": "{}",
+    "max-length": 28
+  },
+
+  "custom/notification": {
+    "format":" ",
+    "on-click": "sleep 0.1 && swaync-client -rs && swaync-client -t",
+    }
+
+}
