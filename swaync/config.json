@@ -52,44 +52,6 @@
     "volume"
    ],
    "widget-config": {
-     "menubar#label": {
-       "menu#power-buttons": {
-         "label": "⏻", 
-         "position": "right",
-         "actions": [ 
-           {
-             "label": " 󰌾 Lock ",
-             "command": "swaync-client -t -sw && swaylock -f"
-           },
-           {
-             "label": " 󰍃 Log Out",
-             "command": "swaync-client -t -sw && hyprctl dispatch exit 0"
-           },
-           {
-             "label": " 󰤄 Suspend ",
-             "command": "swaync-client -t -sw && systemctl suspend"
-           },
-           {
-             "label": " 󰜉 Reboot",
-             "command": "swaync-client -t -sw && reboot"
-           },
-           {
-             "label": " 󰐥 Shut down ",
-             "command": "swaync-client -t -sw && shutdown"
-           }
-         ]
-     },
-
-     "buttons#topbar-buttons": {
-         "position": "right",
-         "actions": [
-           {
-             "label": " 󰋩 ",
-             "command": "swaync-client -t -sw && sh .config/hypr/scripts/wall"
-           }
-         ]
-       }
-     },
      "inhibitors": {
        "text": "inhibitors",
        "button-text": "Clear All",

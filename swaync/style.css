@@ -341,13 +341,6 @@ trough {
 
 }
 
-.amogus>button{
-  border: none;
-  background: @overlay;
-  border-radius: 0px;
-  margin: 4px;
-}
-
 .widget-buttons-grid{
   padding: 8px;
   margin: 80px;

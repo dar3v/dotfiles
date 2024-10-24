@@ -1,20 +1,29 @@
+@define-color background #181616;
+@define-color foreground #c5c9c5;
+@define-color bg #0c0c0c;
 * {
-    font-family: JetBrains Mono SemiBold;
-    font-size: 12px;
+	font-family: "FantasqueSansM Nerd Font";
+	font-weight: bold;
+	min-height: 0;
+
+	/* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
+	font-size: 11px;
+	font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+
 }
+
 window#waybar {
-    background-color: #181616;
+  background: @bg;
+  color: @foreground;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  padding: 0px;
 }
-
-button {
-    box-shadow: inset 0 -3px transparent;
-    border: none;
-    border-radius: 0;
-}
-
 #tags button {
-    padding: 5px 10px;
     color: #767976;
+  background-color: @bg;
+  border-radius: 0px;
+  padding: 1px;
 }
 #tags button.focused {
     color: #24283b;
@@ -24,20 +33,39 @@ button {
   color: #c5c9c5;
 }
 #tags button:hover {
-	background-color: #c0caf5;
+	background-color: #4d4c4c;
 	color: #c0caf5;
 }
-
-#tray, #pulseaudio, #network, #battery {
-    color: #c5c9c5;
-    margin-right: 4px;
-    margin-left: 10px;
+#tags button.urgent {
+  background-color: orange;
 }
+
 #clock {
-    color: #c5c9c5;
-}
-#notification {
-  padding: 5px 10px;
-  color: #c5c9c5;
+  color: @foreground;
+  background: #2b2b2b;
+  padding: 15px;
 }
 
+#battery {
+  padding: 15px;
+  background-color: #222222;
+}
+#battery.warning {
+  background-color: #9c9c00;
+}
+#battery.critical {
+  background-color: #5a0000;
+}
+#battery.charging {
+  background-color: #355a00;
+}
+
+#pulseaudio {
+  padding: 15px;
+  background-color: #191919;
+  color: @foreground;
+}
+
+#tray {
+  padding: 10px;
+}

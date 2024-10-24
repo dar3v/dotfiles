@@ -4,26 +4,26 @@
 riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 
-riverctl background-color 0xc5c9c5
+riverctl spawn "swaybg -i ~/Pictures/Wallpaper/monochromeanime.jpg -m fill"
 riverctl spawn kanshi
 riverctl spawn waybar
-riverctl spawn swaync
+riverctl spawn nm-applet
 
 # keybinds
 # app shortcuts
 riverctl map normal Super+Shift E exit
-riverctl map normal Super+Shift L spawn "waylock -fork-on-lock -init-color 0x333333 -input-color 0xc5c9c5"
+riverctl map normal Super+Shift L spawn "waylock -init-color 0x333333 -input-color 0xc5c9c5"
 riverctl map normal Super Return spawn "kitty"
 riverctl map normal Super N spawn "swaync-client -t"
 riverctl map normal Super Space spawn "rofi -show drun"
 riverctl map normal Super Period spawn "rofimoji"
-riverctl map normal Super W close
+riverctl map normal Super+Shift W close
 riverctl map normal Super E spawn nemo
 riverctl map normal Super S toggle-float
 
 # output management
-riverctl map normal Super 0 focus-output next
-riverctl map normal Super+Shift 0 send-to-output next
+riverctl map normal Super O focus-output next
+riverctl map normal Super+Shift O send-to-output next
 
 # window management
 riverctl map normal Alt Tab focus-view previous
@@ -105,12 +105,12 @@ riverctl map normal Super F11 enter-mode passthrough
 riverctl map passthrough Super F11 enter-mode normal
 
 # mouse
-riverctl hide-cursor timeout 0
-riverctl hide-cursor when-typing enabled
+riverctl hide-cursor when-typing disabled
+riverctl focus-follows-cursor normal
+riverctl set-cursor-warp on-focus-change
 riverctl input pointer-1267-12410-ELAN1203:00_04F3:307A_Touchpad tap enabled
 
 # lid
-# TODO: configure waylock
 map-switch normal lid close spawn waylock
 
 # etc
@@ -118,8 +118,11 @@ riverctl set-repeat 40 300
 
 riverctl rule-add -app-id 'nemo' float
 riverctl rule-add -app-id '*' float
-riverctl rule-add -app-id "waybar" csd
-riverctl rule-add ssd
+
+riverctl rule-add -app-id '*' ssd
+riverctl rule-add -app-id "*bar" csd
+riverctl border-color-focused "0xe9e4e9"
+riverctl border-color-unfocused "0x2f2e2f"
 
 # layout generator
 riverctl default-layout wideriver
@@ -128,13 +131,12 @@ wideriver \
   --layout-alt monocle \
   --stack dwindle \
   --count-master 1 \
-  --ratio-master 0.50 \
+  --ratio-master 0.60 \
   --count-wide-left 0 \
   --ratio-wide 0.35 \
   --no-smart-gaps \
   --inner-gaps 5 \
   --outer-gaps 5 \
-  --border-width 5 \
   --border-width-monocle 0 \
   --border-width-smart-gaps 0 \
   --border-color-focused "0xe9e4e9" \

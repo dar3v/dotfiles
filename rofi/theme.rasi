@@ -36,7 +36,6 @@
 }
 
 textbox-prompt-colon {
-    content: "here-your-prompt";
 }
 
 window {
@@ -144,6 +143,5 @@ inputbar {
 }
 textbox-prompt-colon {
     expand:     false;
-    str:        ":";
     text-color: @normal-foreground;
 }
