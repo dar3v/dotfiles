@@ -14,4 +14,5 @@ also my NixOS Configuration (under construction)
 
 # TO DO
 - [ ] automate installation process with bashscript
+- [ ] rewrite README.md
 - [ ] add documentation
