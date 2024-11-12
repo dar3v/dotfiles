@@ -3,8 +3,6 @@ my main Arch Linux desktop environment
 
 ## info
 
-| info                  | app            | 
-| ---------             | ----------------- |
 | distro                | [arch linux](archlinux.org)   |
 | wm                    |[river](https://codeberg.org/river/river)  |
 | notification daemon   | [swaync](https://github.com/ErikReider/SwayNotificationCenter) |
