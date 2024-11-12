@@ -1,5 +1,5 @@
 #!/bin/sh
-TOGGLE=$HOME/.config/river/.toggle
+TOGGLE=$HOME/.config/river/.modetoggle
 
 if [ ! -e $TOGGLE ]; then
   touch $TOGGLE

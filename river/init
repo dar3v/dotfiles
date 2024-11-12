@@ -4,21 +4,21 @@
 riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 
-riverctl spawn "swaybg -i ~/Pictures/Wallpaper/monochromeanime.jpg -m fill"
+riverctl spawn "swaybg -i ~/Pictures/Wallpaper/111111284980.jpg -m fill"
+riverctl spawn "gammastep -l 12.87:121.77 -t 6000:4500 -g 0.8"
 riverctl spawn kanshi
 riverctl spawn waybar
 riverctl spawn nm-applet
 
 # keybinds
 # app shortcuts
-riverctl map normal Super+Shift E exit
+riverctl map normal Super+Control+Alt E exit
 riverctl map normal Super+Shift L spawn "waylock -init-color 0x333333 -input-color 0xc5c9c5"
 riverctl map normal Super Return spawn "kitty"
 riverctl map normal Super N spawn "swaync-client -t"
 riverctl map normal Super Space spawn "rofi -show drun"
 riverctl map normal Super Period spawn "rofimoji"
 riverctl map normal Super+Shift W close
-riverctl map normal Super E spawn nemo
 riverctl map normal Super S toggle-float
 
 # output management
@@ -33,10 +33,10 @@ riverctl map normal Super K focus-view next
 riverctl map normal Super F toggle-fullscreen
 riverctl map normal Super Z zoom
 
-riverctl map normal Super+Alt H resize horizontal 100
-riverctl map normal Super+Alt J resize vertical -100
-riverctl map normal Super+Alt K resize vertical 100
-riverctl map normal Super+Alt L resize horizontal -100
+riverctl map normal Super+Alt H resize horizontal -100
+riverctl map normal Super+Alt J resize vertical 100
+riverctl map normal Super+Alt K resize vertical -100
+riverctl map normal Super+Alt L resize horizontal 100
 
 riverctl map-pointer normal Super BTN_LEFT move-view
 riverctl map-pointer normal Super BTN_RIGHT resize-view
@@ -89,7 +89,6 @@ for mode in normal locked; do
   riverctl map $mode None XF86AudioLowerVolume spawn 'pamixer -d 5'
   riverctl map $mode None XF86AudioMute spawn 'pamixer --toggle-mute'
 
-  # TODO: dl playerctl
   riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
   riverctl map $mode None XF86AudioPlay spawn 'playerctl play-pause'
   riverctl map $mode None XF86AudioPrev spawn 'playerctl previous'
@@ -105,8 +104,7 @@ riverctl map normal Super F11 enter-mode passthrough
 riverctl map passthrough Super F11 enter-mode normal
 
 # mouse
-riverctl hide-cursor when-typing disabled
-riverctl focus-follows-cursor normal
+riverctl hide-cursor when-typing enabled
 riverctl set-cursor-warp on-focus-change
 riverctl input pointer-1267-12410-ELAN1203:00_04F3:307A_Touchpad tap enabled
 
@@ -136,11 +134,10 @@ wideriver \
   --ratio-wide 0.35 \
   --no-smart-gaps \
   --inner-gaps 5 \
-  --outer-gaps 5 \
+  --outer-gaps 25 \
   --border-width-monocle 0 \
   --border-width-smart-gaps 0 \
   --border-color-focused "0xe9e4e9" \
   --border-color-focused-monocle "0xe9e4e9" \
   --border-color-unfocused "0x2f2e2f" \
-  --log-threshold info \
-  >"/tmp/wideriver.${XDG_VTNR}.${USER}.log" 2>&1 &
+  --log-threshold info
