@@ -3,6 +3,8 @@ my main Arch Linux desktop environment
 
 ## info
 
+| info                  | software          | 
+| ---------             | ----------------- |
 | distro                | [arch linux](archlinux.org)   |
 | wm                    |[river](https://codeberg.org/river/river)  |
 | notification daemon   | [swaync](https://github.com/ErikReider/SwayNotificationCenter) |
@@ -13,5 +15,4 @@ my main Arch Linux desktop environment
 
 # TO DO
 - [ ] automate installation process with bashscript
-- [ ] rewrite README.md
 - [ ] add documentation
