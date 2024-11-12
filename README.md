@@ -14,5 +14,6 @@ my main Arch Linux desktop environment
 
 
 # TO DO
+- [ ] modularize nvim config (lspconfig, custom bindings)
 - [ ] automate installation process with bashscript
 - [ ] add documentation
