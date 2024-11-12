@@ -2,17 +2,15 @@
 my main Arch Linux desktop environment
 
 ## info
-- text editor: **nvim** + **lazyvim**
 
-|                       |            | 
+| info                  | app            | 
 | ---------             | ----------------- |
-| distro                | [arch linux](archlinux.org)               |
+| distro                | [arch linux](archlinux.org)   |
 | wm                    |[river](https://codeberg.org/river/river)  |
 | notification daemon   | [swaync](https://github.com/ErikReider/SwayNotificationCenter) |
-| terminal              | [kitty](https://github.com/kovidgoyal/kitty)        |
-| text editor/IDE       | [nvim](https://github.com/neovim/neovim)              |
-| neovim distro       | [nvchad](https://nvchad.com)              |
-
+| terminal              | [kitty](https://github.com/kovidgoyal/kitty)  |
+| text editor/IDE       | [nvim](https://github.com/neovim/neovim)      |
+| neovim distro         | [nvchad](https://nvchad.com)    |
 
 
 # TO DO
