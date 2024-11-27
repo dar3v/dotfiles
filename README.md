@@ -14,6 +14,8 @@ my main Arch Linux desktop environment
 | text editor/IDE       | [nvim](https://github.com/neovim/neovim)      |
 | neovim distro         | [nvchad](https://nvchad.com)    |
 
+i also use [stow](https://www.gnu.org/software/stow/) for symlinking the dotfiles to their respective directory
+
 
 # TO DO
 - [ ] modularize nvim config (lspconfig, custom bindings)
