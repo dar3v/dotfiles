@@ -19,7 +19,7 @@ riverctl map normal Super N spawn "swaync-client -t"
 riverctl map normal Super Space spawn "rofi -show drun"
 riverctl map normal Super Period spawn "rofimoji"
 # NOTE: hard coded display
-riverctl map normal None Print spawn 'grim -o HDMI-A-1 && notify-send "grim" "screenshot taken"'
+riverctl map normal None Print spawn 'grim -g "$(slurp)" - | wl-copy --type image/png && notify-send "grim" "screenshot taken"'
 riverctl map normal Super+Shift W close
 riverctl map normal Super S toggle-float
 
