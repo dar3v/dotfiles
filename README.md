@@ -1,6 +1,8 @@
 # dotfiles
 my main Arch Linux desktop environment
 
+still a very much work in progress
+
 ## info
 
 | info                  | software          | 
@@ -21,3 +23,4 @@ i also use [stow](https://www.gnu.org/software/stow/) for symlinking the dotfile
 - [ ] modularize nvim config (lspconfig, custom bindings)
 - [ ] automate installation process with bashscript
 - [ ] add documentation
+- [ ] hardcoding fix
