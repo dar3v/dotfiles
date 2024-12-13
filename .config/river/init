@@ -5,7 +5,7 @@ riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 
 riverctl spawn "swaybg -i ~/Pictures/Wallpaper/111111284980.jpg -m fill"
-riverctl spawn "gammastep -l 12.87:121.77 -t 6000:4500 -g 0.8"
+riverctl spawn "gammastep"
 riverctl spawn kanshi
 riverctl spawn waybar
 riverctl spawn nm-applet
@@ -18,8 +18,7 @@ riverctl map normal Super Return spawn "kitty"
 riverctl map normal Super N spawn "swaync-client -t"
 riverctl map normal Super Space spawn "rofi -show drun"
 riverctl map normal Super Period spawn "rofimoji"
-# NOTE: hard coded display
-riverctl map normal None Print spawn 'grim -g "$(slurp)" - | wl-copy --type image/png && notify-send "grim" "screenshot taken"'
+riverctl map normal None Print spawn 'grim -g "$(slurp)" - | wl-copy --type image/png && notify-send "grim" "screenshot taken"' # NOTE: hard coded display
 riverctl map normal Super+Shift W close
 riverctl map normal Super S toggle-float
 
