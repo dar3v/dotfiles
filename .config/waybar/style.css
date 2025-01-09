@@ -23,7 +23,7 @@ window#waybar {
     color: #767976;
   background-color: @bg;
   border-radius: 0px;
-  padding: 1px;
+  padding: 15px;
 }
 #tags button.focused {
     color: #24283b;
