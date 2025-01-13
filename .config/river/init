@@ -6,16 +6,16 @@ riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_
 
 riverctl spawn "swaybg -i ~/Pictures/Wallpaper/111111284980.jpg -m fill"
 riverctl spawn "gammastep-indicator"
-riverctl spawn kanshi
-riverctl spawn waybar
-riverctl spawn nm-applet
+riverctl spawn "fnott"
+riverctl spawn "kanshi"
+riverctl spawn "waybar"
+riverctl spawn "nm-applet"
 
 # keybinds
 # app shortcuts
 riverctl map normal Super+Control+Alt E exit
 riverctl map normal Super+Shift L spawn "waylock -init-color 0x333333 -input-color 0xc5c9c5"
 riverctl map normal Super Return spawn "kitty"
-riverctl map normal Super N spawn "swaync-client -t"
 riverctl map normal Super Space spawn "rofi -show drun"
 riverctl map normal Super Period spawn "rofimoji"
 riverctl map normal None Print spawn 'grim -g "$(slurp)" - | wl-copy --type image/png && notify-send "grim" "screenshot taken"'
