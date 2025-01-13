@@ -20,3 +20,8 @@ function yy
     end
     rm -f -- "$tmp"
 end
+
+# ensure nvim is the editor
+if ! set -q EDITOR;
+    set -x EDITOR nvim
+end
