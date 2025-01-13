@@ -3,13 +3,10 @@
 @define-color bg #0c0c0c;
 * {
 	font-family: "FantasqueSansM Nerd Font";
-	font-weight: bold;
+	font-weight: 200;
 	min-height: 0;
 
-	/* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
 	font-size: 11px;
-	font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
-
 }
 
 window#waybar {
@@ -42,30 +39,26 @@ window#waybar {
 
 #clock {
   color: @foreground;
-  background: #2b2b2b;
-  padding: 15px;
+  padding: 10px;
 }
 
 #battery {
-  padding: 15px;
-  background-color: #222222;
+  padding: 10px;
 }
 #battery.warning {
-  background-color: #9c9c00;
+  color: #9c9c00;
 }
 #battery.critical {
-  background-color: #5a0000;
+  color: #5a0000;
 }
 #battery.charging {
-  background-color: #355a00;
+  color: #355a00;
 }
 
 #pulseaudio {
-  padding: 15px;
-  background-color: #191919;
-  color: @foreground;
+  padding: 10px;
 }
 
 #tray {
-  padding: 10px;
+  padding: 12px;
 }

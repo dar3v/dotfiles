@@ -1,9 +1,10 @@
 // -*- mode: jsonc -*-
 {
     // "layer": "top", // Waybar at top layer
-     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 44, // Waybar height (to be removed for auto height)
+     "position": "top", // (top|bottom|left|right)
+    "height": 44, // (to be removed for auto height)
     // "width": 1080, // Waybar width
+
     // Choose the order of the modules
 "modules-left": [
     "river/tags",
@@ -22,6 +23,7 @@
     "river/tags": {
       "num-tags": 9,
     },
+
     "river/window": {
     "format": "{}"
     },
