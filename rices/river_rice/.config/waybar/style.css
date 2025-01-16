@@ -1,0 +1,64 @@
+@define-color background #181616;
+@define-color foreground #c5c9c5;
+@define-color bg #0c0c0c;
+* {
+	font-family: "FantasqueSansM Nerd Font";
+	font-weight: 200;
+	min-height: 0;
+
+	font-size: 11px;
+}
+
+window#waybar {
+  background: @bg;
+  color: @foreground;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  padding: 0px;
+}
+#tags button {
+    color: #767976;
+  background-color: @bg;
+  border-radius: 0px;
+  padding: 15px;
+}
+#tags button.focused {
+    color: #24283b;
+    background-color: #5d5c5c;
+}
+#tags button.occupied {
+  color: #c5c9c5;
+}
+#tags button:hover {
+	background-color: #4d4c4c;
+	color: #c0caf5;
+}
+#tags button.urgent {
+  background-color: orange;
+}
+
+#clock {
+  color: @foreground;
+  padding: 10px;
+}
+
+#battery {
+  padding: 10px;
+}
+#battery.warning {
+  color: #9c9c00;
+}
+#battery.critical {
+  color: #5a0000;
+}
+#battery.charging {
+  color: #355a00;
+}
+
+#pulseaudio {
+  padding: 10px;
+}
+
+#tray {
+  padding: 12px;
+}

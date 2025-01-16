@@ -1,0 +1,144 @@
+#!/bin/sh
+
+# Autostart
+riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
+riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
+
+riverctl spawn "swaybg -i ~/Pictures/Wallpaper/111111284980.jpg -m fill"
+riverctl spawn "gammastep-indicator"
+riverctl spawn "fnott"
+riverctl spawn "kanshi"
+riverctl spawn "waybar"
+riverctl spawn "nm-applet"
+
+# keybinds
+# app shortcuts
+riverctl map normal Super+Control+Alt E exit
+riverctl map normal Super+Shift L spawn "waylock -init-color 0x333333 -input-color 0xc5c9c5"
+riverctl map normal Super Return spawn "kitty"
+riverctl map normal Super Space spawn "rofi -show drun"
+riverctl map normal Super Period spawn "rofimoji"
+riverctl map normal None Print spawn 'grim -g "$(slurp)" - | wl-copy --type image/png && notify-send "grim" "screenshot taken"'
+riverctl map normal Super+Shift W close
+riverctl map normal Super S toggle-float
+
+# output management
+riverctl map normal Super O focus-output next
+riverctl map normal Super+Shift O send-to-output next
+
+# window management
+riverctl map normal Alt Tab focus-view previous
+riverctl map normal Super J focus-view previous
+riverctl map normal Super K focus-view next
+
+riverctl map normal Super F toggle-fullscreen
+riverctl map normal Super Z zoom
+
+riverctl map normal Super+Alt H resize horizontal -100
+riverctl map normal Super+Alt J resize vertical 100
+riverctl map normal Super+Alt K resize vertical -100
+riverctl map normal Super+Alt L resize horizontal 100
+
+riverctl map-pointer normal Super BTN_LEFT move-view
+riverctl map-pointer normal Super BTN_RIGHT resize-view
+riverctl map-pointer normal Super BTN_MIDDLE toggle-float
+
+# layout management
+riverctl map normal Super G spawn "$HOME/.config/river/river-toggle.sh"
+riverctl map normal Super up send-layout-cmd wideriver "--layout monocle"
+riverctl map normal Super down send-layout-cmd wideriver "--layout wide"
+riverctl map normal Super left send-layout-cmd wideriver "--layout left"
+riverctl map normal Super right send-layout-cmd wideriver "--layout right"
+
+riverctl map normal Alt Space send-layout-cmd wideriver "--layout-toggle"
+
+riverctl map normal Super plus send-layout-cmd wideriver "--ratio +0.025"
+riverctl map normal Super equal send-layout-cmd wideriver "--ratio 0.50"
+riverctl map normal Super minus send-layout-cmd wideriver "--ratio -0.025"
+
+riverctl map normal Alt plus send-layout-cmd wideriver "--count +1"
+riverctl map normal Alt equal send-layout-cmd wideriver "--count 1"
+riverctl map normal Alt minus send-layout-cmd wideriver "--count -1"
+
+riverctl map normal Alt e send-layout-cmd wideriver "--stack even"
+riverctl map normal Alt w send-layout-cmd wideriver "--stack dwindle"
+riverctl map normal Alt i send-layout-cmd wideriver "--stack diminish"
+
+# tags
+for i in $(seq 1 9); do
+  tags=$((1 << ($i - 1)))
+  riverctl map normal Super $i set-focused-tags $tags
+  riverctl map normal Super+Shift $i set-view-tags $tags
+  riverctl map normal Super+Control $i toggle-focused-tags $tags
+  riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
+done
+riverctl map normal Super Tab focus-previous-tags
+
+# scratchpad
+scratch_tag=$((1 << 20))
+
+riverctl map normal Super P toggle-focused-tags ${scratch_tag} # toggle the scratchpad
+riverctl map normal Super+Shift P set-view-tags ${scratch_tag} # send windows to the scratchpad
+
+# Set spawn tagmask to ensure new windows do not have the scratchpad tag unless explicitly set.
+all_but_scratch_tag=$((((1 << 32) - 1) ^ $scratch_tag))
+riverctl spawn-tagmask ${all_but_scratch_tag}
+
+# keybinds media for normal and locked mode
+for mode in normal locked; do
+  riverctl map $mode None XF86AudioRaiseVolume spawn 'pamixer -i 5'
+  riverctl map $mode None XF86AudioLowerVolume spawn 'pamixer -d 5'
+  riverctl map $mode None XF86AudioMute spawn 'pamixer --toggle-mute'
+
+  riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
+  riverctl map $mode None XF86AudioPlay spawn 'playerctl play-pause'
+  riverctl map $mode None XF86AudioPrev spawn 'playerctl previous'
+  riverctl map $mode None XF86AudioNext spawn 'playerctl next'
+
+  riverctl map $mode None XF86MonBrightnessUp spawn 'brightnessctl set +5%'
+  riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
+done
+
+# mode passthrough
+riverctl declare-mode passthrough
+riverctl map normal Super F11 enter-mode passthrough
+riverctl map passthrough Super F11 enter-mode normal
+
+# mouse
+riverctl hide-cursor when-typing enabled
+riverctl set-cursor-warp on-focus-change
+riverctl input pointer-1267-12410-ELAN1203:00_04F3:307A_Touchpad tap enabled
+
+# lid
+map-switch normal lid close spawn waylock
+
+# etc
+riverctl set-repeat 40 300
+
+riverctl rule-add -app-id 'nemo' float
+riverctl rule-add -app-id '*' float
+
+riverctl rule-add -app-id '*' ssd
+riverctl rule-add -app-id "*bar" csd
+riverctl border-color-focused "0xe9e4e9"
+riverctl border-color-unfocused "0x2f2e2f"
+
+# layout generator
+riverctl default-layout wideriver
+wideriver \
+  --layout left \
+  --layout-alt monocle \
+  --stack dwindle \
+  --count-master 1 \
+  --ratio-master 0.60 \
+  --count-wide-left 0 \
+  --ratio-wide 0.35 \
+  --no-smart-gaps \
+  --inner-gaps 5 \
+  --outer-gaps 25 \
+  --border-width-monocle 0 \
+  --border-width-smart-gaps 0 \
+  --border-color-focused "0xe9e4e9" \
+  --border-color-focused-monocle "0xe9e4e9" \
+  --border-color-unfocused "0x2f2e2f" \
+  --log-threshold info
