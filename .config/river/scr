@@ -1,3 +1,0 @@
-#!/bin/bash
-grim -o HDMI-A-1 | wl-copy --type image/png &
-notify-send "grim" "screenshot taken"
