@@ -1,6 +1,6 @@
 # project file hierarchy
 ```sh
-$ tree -L 2
+$ tree -L 3
 .
 ├── .gitignore
 ├── LICENCE
@@ -23,4 +23,5 @@ $ tree -L 2
 
 >[!NOTE]
 > 
-> make sure to configure `stow` to stow files at `$HOME` or `$HOME/.config`
+> make sure to configure `stow` to  automatically stow files at `$HOME`.
+> this is because by default, `stow` symlinks files at the parent directory.
