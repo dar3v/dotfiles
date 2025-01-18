@@ -11,6 +11,8 @@
         unzip
         gcc
 
+		godot_4
+
 		# terminal
 		fish
 		starship
