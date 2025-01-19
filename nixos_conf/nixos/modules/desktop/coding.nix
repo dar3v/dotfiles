@@ -11,11 +11,11 @@
         unzip
         gcc
 
-		godot_4
+	godot_4
 
-		# terminal
-		fish
-		starship
-		zoxide
+	# terminal
+	fish
+	starship
+	zoxide
 	];
 }

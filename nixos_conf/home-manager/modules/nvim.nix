@@ -8,7 +8,7 @@
 			nvim-treesitter.withAllGrammars
 		];
 	
-		extraPackages =	with pkgs;
+		extraPackages = with pkgs;
 		[
 			lua-language-server
 	

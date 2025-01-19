@@ -4,7 +4,7 @@
     [ # yes
         ./modules/gammastep.nix
         ./modules/theme.nix
-		./modules/nvim.nix
+        ./modules/nvim.nix
     ];
 
     home = {
@@ -12,10 +12,10 @@
         homeDirectory = "/home/dar3v";
         stateVersion = "25.05";
 
-		sessionVariables = {
-			EDITOR = "nvim";
-			MANPAGER = "nvim +Man!";
-		};
+        sessionVariables = {
+            EDITOR = "nvim";
+            MANPAGER = "nvim +Man!";
+        };
     };
 
     nixpkgs.config.allowUnfree = true;
