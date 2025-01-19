@@ -1,42 +1,40 @@
-{pkgs, ...}:
-{
+{pkgs, ...}: {
   # wm packages
   security.pam.services.waylock = {};
 
-  environment.systemPackages = with pkgs; 
-  [
-      # riverwm pkgs dependencies
+  environment.systemPackages = with pkgs; [
+    # riverwm pkgs dependencies
 
-      # yes
-      river
-      wideriver
+    # yes
+    river
+    wideriver
 
-      # monitor management
-      kanshi
-      wlr-randr
-      brightnessctl
+    # monitor management
+    kanshi
+    wlr-randr
+    brightnessctl
 
-      # wayland utils
-      swaybg
-      waylock
-      waybar
-      brightnessctl
-      wl-clipboard
-      rofi-wayland
-      rofimoji
-      libnotify
-      swaynotificationcenter # TODO: might replace soon idk
-	  fnott
+    # wayland utils
+    swaybg
+    waylock
+    waybar
+    brightnessctl
+    wl-clipboard
+    rofi-wayland
+    rofimoji
+    libnotify
+    swaynotificationcenter # TODO: might replace soon idk
+    fnott
 
-      # etc utils
-      bluez
-      bluez-tools
-      networkmanagerapplet
+    # etc utils
+    bluez
+    bluez-tools
+    networkmanagerapplet
 
-      playerctl
-      pavucontrol
-      pamixer
+    playerctl
+    pavucontrol
+    pamixer
 
-	  stow
+    stow
   ];
 }

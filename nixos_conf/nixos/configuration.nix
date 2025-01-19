@@ -1,6 +1,4 @@
-# configuration.nix
-# system-wide universal configuration
-{ config, ... }: {
+{
   imports = [
     ./modules/desktop.nix
     ./hardware-configuration.nix # TODO: not reproducible !!1!1!
