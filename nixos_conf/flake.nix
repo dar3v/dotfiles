@@ -33,26 +33,31 @@
 
   # > outputs <
   outputs = {
-    inputs,
+    self,
     nixpkgs,
+    home-manager,
+    nixos-hardware,
+    auto-cpufreq,
+    stylix,
+    aagl,
   }: {
     # nix configuration
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./nixos/configuration.nix
-        inputs.nixos-hardware.nixosModules.asus-fa506ic # NOTE: change accordingly to ur hardware
-        inputs.auto-cpufreq.nixosModules.default
-        inputs.aagl.nixosModules.default
+        nixos-hardware.nixosModules.asus-fa506ic # NOTE: change accordingly to ur hardware
+        auto-cpufreq.nixosModules.default
+        aagl.nixosModules.default
       ];
     };
 
     # home-manager
-    homeConfigurations.dar3v = inputs.home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.dar3v = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
       modules = [
         ./home-manager/home.nix
-        inputs.stylix.homeManagerModules.stylix
+        stylix.homeManagerModules.stylix
       ];
     };
   };

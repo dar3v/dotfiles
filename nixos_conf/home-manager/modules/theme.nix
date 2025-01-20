@@ -5,29 +5,32 @@
     # base16 color scheme that stylix will apply
     base16Scheme = {
       # kanagawa-dragon theme
-      base00 = "1F1F28";
-      base01 = "2A2A37";
-      base02 = "223249";
-      base03 = "727169";
-      base04 = "C8C093";
-      base05 = "DCD7BA";
-      base06 = "938AA9";
-      base07 = "363646";
-      base08 = "C34043";
-      base09 = "FFA066";
-      base0A = "DCA561";
-      base0B = "98BB6C";
-      base0C = "7FB4CA";
-      base0D = "7E9CD8";
-      base0E = "957FB8";
-      base0F = "D27E99";
+      base00 = "181616";
+      base01 = "0d0c0c";
+      base02 = "2d4f67";
+      base03 = "a6a69c";
+      base04 = "7fb4ca";
+      base05 = "c5c9c5";
+      base06 = "938aa9";
+      base07 = "c5c9c5";
+      base08 = "c4746e";
+      base09 = "e46876";
+      base0A = "c4b28a";
+      base0B = "8a9a7b";
+      base0C = "8ea4a2";
+      base0D = "8ba4b0";
+      base0E = "a292a3";
+      base0F = "7aa89f";
     };
+    image = ./submodules/room.png;
 
     # remove window border radius
-    gtk = {
+    targets.gtk = {
       enable = true;
+
+      # HACK: I HATE ROUNDED CORNERS
       extraCss = ''
-        window.background { border-radius: 0; }
+        * { border-radius: 0; }
       '';
     };
 
@@ -45,21 +48,40 @@
         package = pkgs.dejavu_fonts;
         name = "DejaVu Serif";
       };
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
+
+    # font sizes
+    fonts.sizes = {
+      applications = 10;
+      desktop = 10;
+      popups = 10;
     };
 
     # apply a cursor theme
-    cursor.package = pkgs.bibata-cursors;
-    cursor.name = "Bibata-Modern-Ice";
+    cursor = {
+      package = pkgs.quintom-cursor-theme;
+      name = "Quintiom_Snow";
+      size = 32;
+    };
 
     # apply an icon theme
     iconTheme = {
       enable = true;
-      package = pkgs.vimix-icon-theme;
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus-Dark";
     };
 
-    # manually enable stylix on some programs
-    river.enable = true;
-    rofi.enable = true;
-    yazi.enable = true;
+    # manually override stuff
+    targets = {
+      neovim.enable = false;
+      kitty.enable = false;
+      rofi.enable = false;
+      waybar.enable = false;
+      fish.enable = false;
+    };
   };
 }
