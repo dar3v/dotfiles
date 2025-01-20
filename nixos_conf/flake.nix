@@ -21,6 +21,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # stylix
+    stylix.url = "github:danth/stylix";
+
     # aagl
     aagl = {
       url = "github:ezKEa/aagl-gtk-on-nix";
@@ -30,29 +33,27 @@
 
   # > outputs <
   outputs = {
+    inputs,
     nixpkgs,
-    home-manager,
-    nixos-hardware,
-    auto-cpufreq,
-    aagl,
   }: {
     # nix configuration
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./nixos/configuration.nix
-
-        # NOTE: change accordingly to ur hardware
-        nixos-hardware.nixosModules.asus-fa506ic
-        auto-cpufreq.nixosModules.default
-        aagl.nixosModules.default
+        inputs.nixos-hardware.nixosModules.asus-fa506ic # NOTE: change accordingly to ur hardware
+        inputs.auto-cpufreq.nixosModules.default
+        inputs.aagl.nixosModules.default
       ];
     };
 
     # home-manager
-    homeConfigurations.dar3v = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.dar3v = inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
-      modules = [./home-manager/home.nix];
+      modules = [
+        ./home-manager/home.nix
+        inputs.stylix.homeManagerModules.stylix
+      ];
     };
   };
 }
