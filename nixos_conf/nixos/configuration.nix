@@ -90,6 +90,12 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # configure powerKey behavior
+  services.logind = {
+    powerKey = "ignore";
+    powerKeyLongPress = "poweroff";
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
