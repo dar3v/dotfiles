@@ -24,6 +24,22 @@
     };
   };
 
+  # setup xdg-portal
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    configPackages = with pkgs; [
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+    ];
+  };
+
+  # set some environment variables
+  environment.sessionVariables = {
+    FLAKE = "/home/dar3v/dotfiles/nixos_conf/";
+    EDITOR = "nvim";
+  };
+
   # packages for my desktop environments
   environment.systemPackages = with pkgs; [
     # cli utils
@@ -34,6 +50,11 @@
     fastfetch
     ffmpeg
     tree
+
+    # nix helpers
+    nh
+    nix-output-monitor
+    nvd
 
     # etc
     home-manager
