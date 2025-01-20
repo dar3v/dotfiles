@@ -2,6 +2,7 @@
   environment.systemPackages = with pkgs; [
     # code stuff
     nodejs
+    typescript
     python3
     gnumake
 
