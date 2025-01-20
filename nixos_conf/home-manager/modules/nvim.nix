@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  # my nvim config is on `lua`,
+  # this is only for installing neovim itself and LSPs
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -9,13 +11,10 @@
 
     extraPackages = with pkgs; [
       lua-language-server
+      typescript-language-server
 
       nixd
       alejandra
     ];
   };
-
-  home.packages = with pkgs; [
-    ripgrep
-  ];
 }
