@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, config, ...}: {
   stylix = {
     enable = true;
 
@@ -28,26 +28,20 @@
     targets.gtk = {
       enable = true;
 
-      # HACK: I HATE ROUNDED CORNERS
+      # I HATE ROUNDED CORNERS
       extraCss = ''
         * { border-radius: 0; }
       '';
     };
 
-    # appply a monospace, sans-serif, and serif font
+    # use monospace for everything
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBransMonoNF-Regular";
+        name = "JetBrainsMonoNL Nerd Font";
       };
-      sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
-      };
-      serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
-      };
+      sansSerif = config.stylix.fonts.monospace;
+      serif = config.stylix.fonts.monospace;
       emoji = {
         package = pkgs.noto-fonts-emoji;
         name = "Noto Color Emoji";
