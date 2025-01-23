@@ -10,6 +10,7 @@ riverctl spawn "fnott"
 riverctl spawn "kanshi"
 riverctl spawn "waybar"
 riverctl spawn "nm-applet"
+riverctl spawn "rog-control-center"
 
 # keybinds
 # app shortcuts
