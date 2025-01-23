@@ -36,7 +36,7 @@
 
   # set some environment variables
   environment.sessionVariables = {
-    FLAKE = "/home/dar3v/dotfiles/nixos_conf/";
+    FLAKE = "$HOME/dotfiles/nixos_conf/";
     EDITOR = "nvim";
   };
 
