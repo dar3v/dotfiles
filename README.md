@@ -1,19 +1,22 @@
 # dotfiles
-just another dotfiles.
-this is an amalgamation of different rices from [r/unixporn](https://www.reddit.com),
-with some few modifications.
-feel free to use this in any way you want.
+just another dotfiles
 
-<!--  TODO: add screenshots here  -->
+![screenshot-1](./pictures/scr_1.png)
 
 ## info
 setup info:
 - main os: [NixOS](https://nixos.org/)
 - second os: [Arch Linux](https://archlinux.org)
 - wm: [river](https://codeberg.org/river/river)
+- colorscheme: [kanagawa-dragon](https://github.com/rebelot/kanagawa.nvim)
 - editor: [nvim](https://neovim.io) + [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 - web browser: [firefox](https://www.mozilla.org/en-US/firefox/new/) + [scientiac/scifox](https://github.com/scientiac/scifox)
 - GUI file explorer: [nemo](https://github.com/linuxmint/nemo)
+
+i used [stylix's](https://github.com/danth/stylix) home-manager module for automating theming.
+
+
+![screenshot-2](./pictures/scr_2.png)
 
 ```sh
 $ tree -L 2
@@ -31,6 +34,8 @@ $ tree -L 2
 
 7 directories, 5 files
 ```
+![screenshot-3](./pictures/scr_3.png)
+
 ## dependencies
 >[!NOTE]
 >
@@ -51,9 +56,10 @@ $ git clone https://github.com/dar3v/dotfiles
 
 ```sh
 $ pwd # current directory
-/home/dar3v/dotfiles/configs/river_rice/
+/home/<USER>/dotfiles/configs/river_rice/
 
-$ stow -t $HOME # there's probably a more elegant way of doing this
+$ stow -t $HOME
+#      ^^^ there's probably a more elegant way of doing this
 ```
 
 ## todo
