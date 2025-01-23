@@ -3,66 +3,66 @@
 @define-color bg #0c0c0c;
 
 * {
-	font-family: "FantasqueSansM Nerd Font";
-	font-weight: 600;
-	font-size: 12px;
-	min-height: 0;
+  font-family: "FantasqueSansM Nerd Font";
+  font-weight: 600;
+  font-size: 12px;
+  min-height: 0;
   }
 
 window#waybar {
-	background: @bg;
-	color: @foreground;
+  background: @bg;
+  color: @foreground;
 }
 
 #tags button {
-	color: #767976;
-	background-color: @bg;
-	border-radius: 0px;
-	padding: 12px;
+  color: #767976;
+  background-color: @bg;
+  border-radius: 0px;
+  padding: 12px;
 }
 #tags button.focused {
     color: #24283b;
     background-color: #5d5c5c;
 }
 #tags button.occupied {
-	color: #c5c9c5;
+  color: #c5c9c5;
 }
 #tags button:hover {
-	background-color: #4d4c4c;
-	color: #c0caf5;
+  background-color: #4d4c4c;
+  color: #c0caf5;
 }
 #tags button.urgent {
-	background-color: orange;
+  background-color: orange;
 }
 
 #clock {
-	color: @foreground;
-	padding: 10px;
+  color: @foreground;
+  padding: 10px;
 }
 
 #battery {
-	padding: 10px;
+  padding: 10px;
 }
 #battery.warning {
-	color: #9c9c00;
+  color: #9c9c00;
 }
 #battery.critical {
-	color: #5a0000;
-	font-weight: bolder;
+  color: #5a0000;
+  font-weight: bolder;
 }
 #battery.charging {
-	color: #355a00;
+  color: #355a00;
 }
 
 #pulseaudio {
-	padding: 10px;
+  padding: 10px;
 }
 
 #separator {
-	font-weight: 800;
-	font-size: 15px;
+  font-weight: 800;
+  font-size: 15px;
 }
 
 #tray {
-	margin-right: 20px;
+  margin-right: 20px;
 }
