@@ -3,38 +3,34 @@
     // "layer": "top", // Waybar at top layer
     "position": "top", // (top|bottom|left|right)
     "height": 40, // (to be removed for auto height)
-    // "width": 1080, // Waybar width
+     "width": 1080, // Waybar width
 
     // Choose the order of the modules
-	"modules-left": [
-		"river/tags",
-		"wlr/taskbar",
+	    "modules-left": [
+	    	"river/tags",
+	    	"wlr/taskbar",
     ],
     "modules-center": [ ],
     "modules-right": [
-		"tray",
-		"custom/separator",
+	"tray",
+	"custom/separator",
 
-		"pulseaudio",
-		"custom/separator",
+	"pulseaudio",
+	"custom/separator",
 
-		"battery",
-		"custom/separator",
+	"battery",
+	"custom/separator",
 
-		"clock",
+	"clock",
     ],
     
-  	// -- modules --
+	// -- modules --
 	"custom/separator": {
 		"format": " | ",
 	},
 
     "river/tags": {
 		"num-tags": 9,
-    },
-
-    "river/window": {
-		"format": "{}"
     },
 
     "wlr/taskbar": {
@@ -66,7 +62,8 @@
 
     "pulseaudio": {
 		"format": "VOL {volume}",
-		"format-bluetooth": "{volume}% {icon}",
+		"format-bluetooth": "VOL {volume}",
+		"format-muted": "VOL MUTED",
 		"scroll-step": 5,
 		"on-click-right": "pavucontrol",
 		"on-click": "pamixer -t",
