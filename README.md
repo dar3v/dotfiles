@@ -15,9 +15,6 @@ setup info:
 
 i used [stylix's](https://github.com/danth/stylix) home-manager module for automating theming.
 
-
-![screenshot-2](./pictures/scr_2.png)
-
 ```sh
 $ tree -L 2
 .
@@ -34,6 +31,9 @@ $ tree -L 2
 
 7 directories, 5 files
 ```
+
+![screenshot-2](./pictures/scr_2.png)
+
 ![screenshot-3](./pictures/scr_3.png)
 
 ## dependencies
