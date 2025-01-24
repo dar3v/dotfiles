@@ -57,9 +57,8 @@
 
     # apply a cursor theme
     cursor = {
-      package = pkgs.quintom-cursor-theme;
-      name = "Quintiom_Snow";
-      size = 32;
+      package = pkgs.openzone-cursors;
+      name = "Openzone Black";
     };
 
     # apply an icon theme
