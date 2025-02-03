@@ -10,9 +10,12 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  'tpope/vim-sleuth',
-
+  -- import everything from `kickstart/plugins`
   { import = 'kickstart.plugins' },
+
+  require 'other-stuff.plugins.neo-tree',
+
+  -- [[ colorscheme ]]
   {
     'rebelot/kanagawa.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -21,6 +24,7 @@ require('lazy').setup({
       vim.cmd.hi 'Comment gui=none'
     end,
   },
+  'tpope/vim-sleuth',
 
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
