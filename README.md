@@ -58,6 +58,7 @@ $ tree -L 2
     - `slurp`
 
 >[!INFO]
+>
 > you dont have to install everything here, just the stuff u want to have configured by my dotfiles.
 
 installing every dependencies on **Arch Linux**:
