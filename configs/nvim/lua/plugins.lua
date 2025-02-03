@@ -14,6 +14,7 @@ require('lazy').setup({
   { import = 'kickstart.plugins' },
 
   require 'other-stuff.plugins.neo-tree',
+  { import = 'custom.plugins'},
 
   -- [[ colorscheme ]]
   {

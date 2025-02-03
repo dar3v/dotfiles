@@ -10,6 +10,7 @@
   "kanagawa.nvim": { "branch": "master", "commit": "988082eb00b845e4afbcaa4fd8e903da8a3ab3b9" },
   "lazy.nvim": { "branch": "main", "commit": "7527af40ddd4a93a02911be570b32609b9d4ea53" },
   "lazydev.nvim": { "branch": "main", "commit": "a1b78b2ac6f978c72e76ea90ae92a94edf380cfc" },
+  "markview.nvim": { "branch": "main", "commit": "a39d03f8445971c4a250396a44b23fa9c6fd8921" },
   "mini.nvim": { "branch": "main", "commit": "509e086e13a1aa7105e427bb1b122a7174716b77" },
   "neo-tree.nvim": { "branch": "main", "commit": "5d172e8315444dbc32867d1c7b04d8e7e68ec4e1" },
   "nui.nvim": { "branch": "main", "commit": "53e907ffe5eedebdca1cd503b00aa8692068ca46" },
