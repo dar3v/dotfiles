@@ -57,7 +57,7 @@ $ tree -L 2
     - `grim`
     - `slurp`
 
->[!INFO]
+>[!NOTE]
 >
 > you dont have to install everything here, just the stuff u want to have configured by my dotfiles.
 
