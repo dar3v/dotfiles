@@ -100,5 +100,8 @@ $ stow -t $HOME river nvim rofi kitty fish starship waybar
 
 ## todo
 - [ ] merge my arch dotfiles
-- [ ] stow shell scripts
 - [ ] add (better) documentation
+- [ ] shell scripts:
+    - [ ] stow script
+    - [ ] screenshot script
+    - [ ] wallpaper script
