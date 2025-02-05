@@ -44,7 +44,7 @@ riverctl map-pointer normal Super BTN_RIGHT resize-view
 riverctl map-pointer normal Super BTN_MIDDLE toggle-float
 
 # layout management
-riverctl map normal Super G spawn "$HOME/.config/river/river-toggle.sh"
+riverctl map normal Super G spawn "$HOME/.config/river/river-toggle.sh -toggle"
 riverctl map normal Super up send-layout-cmd wideriver "--layout monocle"
 riverctl map normal Super down send-layout-cmd wideriver "--layout wide"
 riverctl map normal Super left send-layout-cmd wideriver "--layout left"
@@ -115,8 +115,8 @@ map-switch normal lid close spawn waylock
 # etc
 riverctl set-repeat 40 300
 
-riverctl rule-add -app-id 'nemo' float
-riverctl rule-add -app-id '*' float
+# river mode toggle
+$HOME/.config/river/river-toggle.sh -init
 
 riverctl rule-add -app-id '*' ssd
 riverctl rule-add -app-id "*bar" csd
