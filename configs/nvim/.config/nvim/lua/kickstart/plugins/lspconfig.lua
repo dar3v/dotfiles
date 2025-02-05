@@ -207,6 +207,7 @@ return {
       })
 
       require("lspconfig").ts_ls.setup({})
+      require("lspconfig").omnisharp.setup { cmd = { "omnisharp" }, }
 
       -- Ensure the servers and tools above are installed
       --
