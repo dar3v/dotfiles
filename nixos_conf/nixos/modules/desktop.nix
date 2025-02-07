@@ -49,6 +49,7 @@
     git
     ffmpeg
     tree
+    lsd
     fastfetch
     pfetch
 
