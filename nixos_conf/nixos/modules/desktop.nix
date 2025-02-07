@@ -47,9 +47,10 @@
     btop
     htop
     git
-    fastfetch
     ffmpeg
     tree
+    fastfetch
+    pfetch
 
     # nix helpers
     nh
