@@ -4,6 +4,7 @@
     ./modules/gammastep.nix
     ./modules/theme.nix
     ./modules/nvim.nix
+    ./modules/syncthing.nix
   ];
 
   home = {
