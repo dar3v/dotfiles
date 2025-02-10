@@ -24,12 +24,4 @@
       user = "greeter";
     };
   };
-
-  # syncthing
-  services.syncthing = {
-    enable = true;
-    openDefaultPorts = true;
-    settings.options.localAnnouncePort = 8384;
-  };
-  systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true"; # dont create ~/Sync folder
 }
