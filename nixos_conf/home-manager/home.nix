@@ -31,5 +31,6 @@
     grim
     slurp
     yazi
+    obsidian
   ];
 }
