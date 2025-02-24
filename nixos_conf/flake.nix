@@ -40,15 +40,16 @@
     auto-cpufreq,
     stylix,
     aagl,
-  }: {
+    ...
+  }@inputs: {
     # nix configuration
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = {inherit inputs;};
       modules = [
         ./nixos/configuration.nix
         nixos-hardware.nixosModules.asus-fa506ic # NOTE: change accordingly to ur hardware
         auto-cpufreq.nixosModules.default
-        aagl.nixosModules.default
       ];
     };
 

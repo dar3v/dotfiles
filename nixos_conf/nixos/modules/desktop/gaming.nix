@@ -1,5 +1,11 @@
-{pkgs, ...}: {
-  # enable an anime game launcher
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  # aagl
+  imports = [inputs.aagl.nixosModules.default];
+  nix.settings = inputs.aagl.nixConfig;
   programs.anime-game-launcher.enable = true;
 
   # enable steam
@@ -12,18 +18,19 @@
 
     # add missing dependencies for gamescope
     package = pkgs.steam.override {
-      extraPkgs = pkgs: with pkgs; [
-        xorg.libXcursor
-        xorg.libXi
-        xorg.libXinerama
-        xorg.libXScrnSaver
-        libpng
-        libpulseaudio
-        libvorbis
-        stdenv.cc.cc.lib
-        libkrb5
-        keyutils
-      ];
+      extraPkgs = pkgs:
+        with pkgs; [
+          xorg.libXcursor
+          xorg.libXi
+          xorg.libXinerama
+          xorg.libXScrnSaver
+          libpng
+          libpulseaudio
+          libvorbis
+          stdenv.cc.cc.lib
+          libkrb5
+          keyutils
+        ];
     };
   };
 
