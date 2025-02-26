@@ -9,6 +9,12 @@
     # nixos-hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    # lanzaboote
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # home-manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -39,17 +45,19 @@
     nixos-hardware,
     auto-cpufreq,
     stylix,
+    lanzaboote,
     aagl,
     ...
-  }@inputs: {
+  } @ inputs: {
     # nix configuration
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
         ./nixos/configuration.nix
-        nixos-hardware.nixosModules.asus-fa506ic # NOTE: change accordingly to ur hardware
+        nixos-hardware.nixosModules.asus-fa506ic #  NOTE: change accordingly to ur hardware
         auto-cpufreq.nixosModules.default
+        lanzaboote.nixosModules.lanzaboote
       ];
     };
 

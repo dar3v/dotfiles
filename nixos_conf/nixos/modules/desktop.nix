@@ -5,6 +5,7 @@
   imports = [
     # ./desktop/*
     ./desktop/services.nix
+    ./desktop/secureboot.nix
 
     ./desktop/wm.nix
     ./desktop/gaming.nix
@@ -63,6 +64,7 @@
     firefox
     librewolf-bin
     vesktop
+    transmission_4-gtk
     gparted
   ];
 
