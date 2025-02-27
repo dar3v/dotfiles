@@ -65,6 +65,7 @@
     librewolf-bin
     vesktop
     transmission_4-gtk
+    ntfs3g
     gparted
   ];
 
