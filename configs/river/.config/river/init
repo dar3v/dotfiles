@@ -4,7 +4,7 @@
 riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 
-riverctl spawn "swaybg -i $HOME/Pictures/Wallpaper/current/currrent_wp.png"
+riverctl spawn "swaybg -i $HOME/Pictures/Wallpaper/current/current_wp.png"
 riverctl spawn "gammastep-indicator"
 riverctl spawn "fnott"
 riverctl spawn "kanshi"
