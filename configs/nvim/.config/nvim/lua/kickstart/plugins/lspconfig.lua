@@ -162,6 +162,18 @@ return {
         },
       })
 
+      require 'lspconfig'.pylsp.setup {
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = {
+                ignore = { 'W391' },
+                maxLineLength = 100
+              }
+            }
+          }
+        }
+      }
       require("lspconfig").nixd.setup({
         cmd = { "nixd" },
         settings = {
@@ -174,7 +186,7 @@ return {
 
       require("lspconfig").ts_ls.setup({})
       require("lspconfig").omnisharp.setup { cmd = { "omnisharp" }, }
-      require"lspconfig".clangd.setup{}
+      require "lspconfig".clangd.setup {}
     end,
   }
 }
