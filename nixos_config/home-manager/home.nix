@@ -3,8 +3,9 @@
     # yes
     ./modules/gammastep.nix
     ./modules/theme.nix
-    ./modules/nvim.nix
     ./modules/syncthing.nix
+    ./modules/dev.nix
+    ./modules/nvim.nix
   ];
 
   home = {

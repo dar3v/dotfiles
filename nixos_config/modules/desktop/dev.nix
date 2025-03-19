@@ -2,7 +2,6 @@
   environment.systemPackages = with pkgs; [
     # dev stuff
     devenv
-    direnv
     gnumake
     godot_4
 
@@ -15,10 +14,14 @@
     lazygit
 
     # terminal setup
-    fish
     starship
     zoxide
+    grc
   ];
+
+  programs.fish.enable = true;
+
+  nix.settings.trusted-users = [ "root" "@wheel" ];
 
   # MariaDB
   services.mysql = {
