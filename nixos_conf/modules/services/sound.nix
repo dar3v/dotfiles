@@ -1,9 +1,9 @@
 { lib, config, ... }: {
   options = {
-    sounds.configure = lib.mkOption "configures and enables sound with pipewire";
+    sounds.configure = lib.mkEnableOption "configures and enables sound with pipewire";
   };
 
-  config = lib.mkOption config.sound.configure {
+  config = lib.mkIf config.sounds.configure {
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;
     services.pipewire = {

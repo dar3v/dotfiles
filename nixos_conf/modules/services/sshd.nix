@@ -1,6 +1,6 @@
 { lib, config, ... }: {
   options = {
-    sshd.configure = lib.mkOption "configures and enables sshd";
+    sshd.configure = lib.mkEnableOption "configures and enables sshd";
   };
   config = lib.mkIf config.sshd.configure {
     services.openssh = {

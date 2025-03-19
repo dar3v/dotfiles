@@ -3,10 +3,10 @@
 # imports specific desktop use cases such as for `gaming` and `coding`
 {lib, ...}: {
   imports = [
-    ./desktop/secureboot.nix
-    ./desktop/wm.nix
-    ./desktop/gaming.nix
-    ./desktop/coding.nix
+    ./secureboot.nix
+    ./wm.nix
+    ./gaming.nix
+    ./coding.nix
   ];
 
   secure-boot.configure = lib.mkDefault false;

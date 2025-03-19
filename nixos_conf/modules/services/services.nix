@@ -1,10 +1,9 @@
 {lib, ...}: {
   imports = [
-    ./services/bluetooth.nix
-    ./services/sound.nix
-    ./services/polkit.nix
-    ./services/greetd.nix
-    ./services/sshd.nix
+    ./bluetooth.nix
+    ./sound.nix
+    ./greetd.nix
+    ./sshd.nix
   ];
   # Enable dconf
   programs.dconf.enable = lib.mkDefault true;
@@ -16,6 +15,5 @@
   sounds.configure = lib.mkDefault true;
   bluetooth.configure = lib.mkDefault true;
   tuigreet.configure = lib.mkDefault true;
-  polkit.configure = lib.mkDefault false;
   sshd.configure = lib.mkDefault false;
 }

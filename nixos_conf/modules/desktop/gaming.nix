@@ -5,13 +5,14 @@
   config,
   ...
 }: {
+  imports = [inputs.aagl.nixosModules.default];
+
   options = {
-    gaming = lib.mkOption "install and configure all my gaming needs";
+    gaming = lib.mkEnableOption "install and configure all my gaming needs";
   };
 
   config = lib.mkIf config.gaming {
     # aagl
-    imports = [inputs.aagl.nixosModules.default];
     nix.settings = inputs.aagl.nixConfig;
     programs.anime-game-launcher.enable = true;
 

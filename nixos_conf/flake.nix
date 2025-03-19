@@ -54,6 +54,7 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/fa506ic/configuration.nix
+        ./modules/default.nix
         nixos-hardware.nixosModules.asus-fa506ic #  NOTE: change accordingly to ur hardware
         lanzaboote.nixosModules.lanzaboote
       ];

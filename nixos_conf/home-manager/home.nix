@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     # yes
     ./modules/gammastep.nix
@@ -14,20 +14,4 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-
-  home.packages = with pkgs; [
-  # i moved these to wm.nix
-    # nemo
-    # kitty
-    # imv
-    # fzf
-    # mpv
-    # mpd
-    # ani-cli
-    # nvtopPackages.full
-    # grim
-    # slurp
-    # yazi
-    # obsidian
-  ];
 }

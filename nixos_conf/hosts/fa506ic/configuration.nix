@@ -1,6 +1,7 @@
+{...}:
 {
   imports = [
-    ../../modules/default.nix
+    ./hardware-configuration.nix
   ];
 
   # Define a user account. Don't forget to set a password right after.
@@ -11,7 +12,7 @@
   };
 
   # desktop.nix options
-  secure-boot.enable = true;
+  secure-boot.configure = true;
   wm.enable = true;
   gaming = true;
 

@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }: {
   options = {
-    secure-boot.configure = lib.mkOption "configures and enables secure boot (with lanzaboote)";
+    secure-boot.configure = lib.mkEnableOption "configures and enables secure boot (with lanzaboote)";
   };
 
   config = lib.mkIf config.secure-boot.configure {

@@ -5,7 +5,7 @@
   ...
 }: {
   options = {
-    tuigreet.configure = lib.mkOption "configures and enables greetd with tuigreet";
+    tuigreet.configure = lib.mkEnableOption "configures and enables greetd with tuigreet";
   };
 
   # greetd dm
