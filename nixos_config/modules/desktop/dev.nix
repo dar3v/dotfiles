@@ -1,11 +1,9 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    # code stuff
-    nodejs
-    typescript
-    python3
+    # dev stuff
+    devenv
+    direnv
     gnumake
-
     godot_4
 
     # some utils

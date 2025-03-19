@@ -6,7 +6,7 @@
     ./secureboot.nix
     ./wm.nix
     ./gaming.nix
-    ./coding.nix
+    ./dev.nix
   ];
 
   secure-boot.configure = lib.mkDefault false;
