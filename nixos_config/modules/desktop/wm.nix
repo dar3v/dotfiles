@@ -25,7 +25,7 @@
 
     # for nh and i forgor
     environment.sessionVariables = {
-      FLAKE = "$HOME/dotfiles/nixos_conf/";
+      FLAKE = "$HOME/dotfiles/nixos_config/";
       EDITOR = "nvim";
     };
 

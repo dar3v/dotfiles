@@ -1,10 +1,13 @@
-{pkgs, config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   stylix = {
     enable = true;
 
     # base16 color scheme that stylix will apply
-    base16Scheme = {
-      # kanagawa-dragon theme
+    base16Scheme = { # kanagawa-dragon theme
       base00 = "181616";
       base01 = "0d0c0c";
       base02 = "2d4f67";
@@ -22,6 +25,9 @@
       base0E = "a292a3";
       base0F = "7aa89f";
     };
+
+    # force dark mode
+    polarity = "dark";
 
     # remove window border radius
     targets.gtk = {
