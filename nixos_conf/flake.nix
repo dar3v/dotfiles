@@ -43,7 +43,6 @@
     nixpkgs,
     home-manager,
     nixos-hardware,
-    auto-cpufreq,
     stylix,
     lanzaboote,
     aagl,
@@ -54,9 +53,8 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
-        ./nixos/configuration.nix
+        ./hosts/fa506ic/configuration.nix
         nixos-hardware.nixosModules.asus-fa506ic #  NOTE: change accordingly to ur hardware
-        auto-cpufreq.nixosModules.default
         lanzaboote.nixosModules.lanzaboote
       ];
     };
