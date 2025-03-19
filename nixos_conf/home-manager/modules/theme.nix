@@ -58,6 +58,7 @@
     cursor = {
       package = pkgs.openzone-cursors;
       name = "Openzone Black";
+      size = 32;
     };
 
     # apply an icon theme
