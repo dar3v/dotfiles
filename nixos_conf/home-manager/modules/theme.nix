@@ -22,7 +22,6 @@
       base0E = "a292a3";
       base0F = "7aa89f";
     };
-    image = ./submodules/room.png;
 
     # remove window border radius
     targets.gtk = {
@@ -59,6 +58,7 @@
     cursor = {
       package = pkgs.openzone-cursors;
       name = "Openzone Black";
+      size = 32;
     };
 
     # apply an icon theme
