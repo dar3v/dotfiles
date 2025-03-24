@@ -44,6 +44,10 @@
 
     programs.gamemode.enable = true;
 
+    # razer stuffs
+    hardware.openrazer.enable = true;
+    users.users.dar3v = {extraGroups = ["openrazer"];};
+
     environment.sessionVariables = {
       STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
     };
@@ -55,6 +59,10 @@
 
       bottles # not necessarily for gaming but yes
       superTuxKart
+
+      # razer stuffs
+      polychromatic
+      openrazer-daemon
     ];
   };
 }
