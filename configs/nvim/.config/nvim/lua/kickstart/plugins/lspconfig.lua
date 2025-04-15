@@ -90,6 +90,7 @@ return {
         nixd = {},
         pylsp = {},
         ts_ls = {},
+        phpactor = {},
       }
 
       -- Setup each server
