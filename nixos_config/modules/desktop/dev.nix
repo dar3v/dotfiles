@@ -3,7 +3,6 @@
     # dev stuff
     devenv
     gnumake
-    godot_4
 
     # some utils
     p7zip
@@ -22,10 +21,4 @@
   programs.fish.enable = true;
 
   nix.settings.trusted-users = [ "root" "@wheel" ];
-
-  # MariaDB
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-  };
 }

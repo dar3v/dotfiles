@@ -32,12 +32,28 @@
     # force enable unfree nixpkgs
     nixpkgs.config.allowUnfree = lib.mkForce true;
 
+    # - wms -
+    # wayland
+    programs.river.enable = true;
+    programs.river.xwayland.enable = true;
+
+    # x.org
+    services.xserver = {
+      enable = true;
+      autorun = false;
+      displayManager.startx.enable = true;
+
+      windowManager.berry.enable = true;
+    };
+
     programs.firejail.enable = true;
     environment.systemPackages = with pkgs; [
-      # -- riverwm pkgs dependencies --
-      river
+      # river
       wideriver
       stow
+
+      # x.org
+      sxhkd
 
       # monitor management
       kanshi
