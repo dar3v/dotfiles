@@ -85,7 +85,9 @@ return {
           },
         },
         --  NOTE: Add other language servers here as needed
-        omnisharp = {},
+        omnisharp = {
+          cmd = { "omnisharp" },
+        },
         clangd = {},
         nixd = {},
         pylsp = {},
