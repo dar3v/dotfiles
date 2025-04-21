@@ -21,6 +21,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # auto-cpufreq
+    auto-cpufreq = {
+        url = "github:AdnanHodzic/auto-cpufreq";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # stylix
     stylix.url = "github:danth/stylix";
 
@@ -37,6 +43,7 @@
     nixpkgs,
     home-manager,
     nixos-hardware,
+    auto-cpufreq,
     stylix,
     lanzaboote,
     aagl,
@@ -52,6 +59,7 @@
           ./modules/default.nix
           nixos-hardware.nixosModules.asus-fa506ic #  NOTE: change accordingly to ur hardware
           lanzaboote.nixosModules.lanzaboote
+          auto-cpufreq.nixosModules.default
         ];
       };
     };

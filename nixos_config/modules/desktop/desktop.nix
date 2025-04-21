@@ -12,4 +12,7 @@
   secure-boot.configure = lib.mkDefault false;
   gaming = lib.mkDefault false;
   wm.enable = lib.mkDefault true;
+
+  # auto-cpufreq
+  programs.auto-cpufreq.enable = true;
 }

@@ -21,6 +21,26 @@
         "type": "github"
       }
     },
+    "auto-cpufreq": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1744578060,
+        "narHash": "sha256-ApX5u3aXtmthemPSnZls/oxvqpNR7C9t4Ut57MTvces=",
+        "owner": "AdnanHodzic",
+        "repo": "auto-cpufreq",
+        "rev": "b6493edc7033beac216b8836af4994e56c6682f4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AdnanHodzic",
+        "repo": "auto-cpufreq",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -517,6 +537,7 @@
     "root": {
       "inputs": {
         "aagl": "aagl",
+        "auto-cpufreq": "auto-cpufreq",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
         "nixos-hardware": "nixos-hardware",

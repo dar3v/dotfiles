@@ -42,6 +42,7 @@
       };
     };
 
+    # optimizations
     programs.gamemode.enable = true;
 
     # razer stuffs
@@ -55,10 +56,13 @@
     # install gaming related packages
     environment.systemPackages = with pkgs; [
       protonup
+      protonup-qt
       mangohud
-
-      bottles # not necessarily for gaming but yes
       superTuxKart
+
+      lutris
+      wineWowPackages.waylandFull
+      winetricks
 
       # razer stuffs
       polychromatic
