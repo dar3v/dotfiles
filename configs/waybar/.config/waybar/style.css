@@ -6,19 +6,22 @@
   font-family: "FantasqueSansM Nerd Font";
   font-weight: 600;
   font-size: 12px;
-  min-height: 0;
   }
 
 window#waybar {
-  background: @bg;
+  background: transparent;
   color: @foreground;
+}
+
+#tags {
+  background-color: @background;
+  margin: 5px;
+  margin-left: 10px;
 }
 
 #tags button {
   color: #767976;
-  background-color: @bg;
-  border-radius: 0px;
-  padding: 12px;
+  padding: 5px 10px;
 }
 #tags button.focused {
     color: #24283b;
@@ -35,13 +38,22 @@ window#waybar {
   background-color: orange;
 }
 
+#taskbar {
+  background-color: @background;
+  margin: 5px;
+  margin-left: 10px;
+}
+
 #clock {
-  color: @foreground;
-  padding: 10px;
+  background-color: @background;
+  margin-right: 10px;
+  padding: 5px 10px;
 }
 
 #battery {
-  padding: 10px;
+  background-color: @background;
+  padding: 5px 10px;
+  margin-bottom: 5px;
 }
 #battery.warning {
   color: #9c9c00;
@@ -55,14 +67,18 @@ window#waybar {
 }
 
 #pulseaudio {
-  padding: 10px;
-}
-
-#separator {
-  font-weight: 800;
-  font-size: 15px;
+  background-color: @background;
+  padding: 5px 10px;
+  margin-bottom: 5px;
 }
 
 #tray {
-  margin-right: 20px;
+  background-color: @background;
+  padding: 5px 10px;
+  margin-bottom: 5px;
 }
+
+/**/
+/* #separator { */
+/*   background-color: @background; */
+/* } */

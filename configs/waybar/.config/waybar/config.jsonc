@@ -1,32 +1,26 @@
 // -*- mode: jsonc -*-
 {
-    // "layer": "top", // Waybar at top layer
-    "position": "top", // (top|bottom|left|right)
-    "height": 40, // (to be removed for auto height)
-    "width": 1600, // Waybar width
+    "layer": "top", // Waybar at top layer
+    "position": "bottom", // (top|bottom|left|right)
+    // "height": 40, // (to be removed for auto height)
+    // "width": 1920, // Waybar width
 
     // Choose the order of the modules
 "modules-left": [
       "river/tags",
       "wlr/taskbar",
     ],
-    "modules-center": [ ],
+    "modules-center": [],
     "modules-right": [
       "tray",
-      "custom/separator",
-
       "pulseaudio",
-      "custom/separator",
-
       "battery",
-      "custom/separator",
-
       "clock",
     ],
 
   // -- modules --
   "custom/separator": {
-    "format": " | ",
+    "format": "   ",
   },
 
     "river/tags": {
@@ -83,6 +77,6 @@
 
     "tray": {
       "icon-size": 16,
-      "spacing": 12
+      "spacing": 10,
     },
 }
