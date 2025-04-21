@@ -31,7 +31,16 @@ return {
       return '%2l:%-2v'
     end
 
-    -- ... and there is more!
-    --  Check out: https://github.com/echasnovski/mini.nvim
+    -- mini.hipatterns
+    local hipatterns = require('mini.hipatterns')
+    hipatterns.setup({
+      highlighters = {
+
+        -- Highlight hex color strings (`#rrggbb`) using that color
+        hex_color = hipatterns.gen_highlighter.hex_color(),
+      },
+    })
+
+    --  for more : https://github.com/echasnovski/mini.nvim
   end,
 }
