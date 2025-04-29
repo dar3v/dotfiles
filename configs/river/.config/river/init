@@ -120,6 +120,7 @@ $HOME/.config/river/river-toggle.sh -init
 
 riverctl rule-add -app-id '*' ssd
 riverctl rule-add -app-id "*bar" csd
+riverctl border-width 5
 riverctl border-color-focused "0xe9e4e9"
 riverctl border-color-unfocused "0x2f2e2f"
 
@@ -136,8 +137,9 @@ wideriver \
   --no-smart-gaps \
   --inner-gaps 5 \
   --outer-gaps 25 \
-  --border-width-monocle 0 \
-  --border-width-smart-gaps 0 \
+  --border-width 5 \
+  --border-width-monocle 1 \
+  --border-width-smart-gaps 1 \
   --border-color-focused "0xe9e4e9" \
   --border-color-focused-monocle "0xe9e4e9" \
   --border-color-unfocused "0x2f2e2f" \
