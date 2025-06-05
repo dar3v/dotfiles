@@ -12,6 +12,7 @@
     extraPackages = with pkgs; [
       lua-language-server
       typescript-language-server
+      omnisharp-roslyn
 
       nixd
       alejandra
