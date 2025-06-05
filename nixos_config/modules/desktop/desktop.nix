@@ -7,6 +7,7 @@
     ./wm.nix
     ./gaming.nix
     ./dev.nix
+    ./unity3d.nix
   ];
 
   secure-boot.configure = lib.mkDefault false;

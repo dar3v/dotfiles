@@ -15,6 +15,7 @@
     xdg.portal = {
       enable = true;
       wlr.enable = true;
+      xdgOpenUsePortal = true;
       configPackages = with pkgs; [
         xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
@@ -117,6 +118,7 @@
       slurp
       yazi
       obsidian
+      obs-studio
     ];
 
     # fonts
