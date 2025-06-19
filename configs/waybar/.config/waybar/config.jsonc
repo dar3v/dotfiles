@@ -1,82 +1,140 @@
 // -*- mode: jsonc -*-
 {
-    "layer": "bottom", // Waybar at top layer
-    "position": "bottom", // (top|bottom|left|right)
-    // "height": 40, // (to be removed for auto height)
-    // "width": 1920, // Waybar width
+    // "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 40,
+    // "width": 1900,
+    "spacing": 3,
+    "margin-left": 15,
+    "margin-right": 15,
+    "margin-top": 5,
 
     // Choose the order of the modules
-"modules-left": [
-      "river/tags",
-      "wlr/taskbar",
+    "modules-left": [
+        "clock#week",
+        "clock#date",
+        "clock#time",
+        "niri/workspaces"
     ],
-    "modules-center": [],
+    "modules-center": [
+    ],
     "modules-right": [
-      "tray",
-      "pulseaudio",
-      "battery",
-      "clock",
+        "tray",
+        "cpu",
+        "memory",
+        "pulseaudio",
+        "network",
+        "battery",
     ],
 
-  // -- modules --
-  "custom/separator": {
-    "format": "   ",
-  },
-
-    "river/tags": {
-    "num-tags": 9,
-    "tag-labels": [
-      "一",
-      "二",
-      "三",
-      "四",
-      "五",
-      "六",
-      "七",
-      "八",
-      "九",
-    ]
-  },
-
-    "wlr/taskbar": {
-    "format": "{icon}",
-    "icon-size": 13,
-    "tooltip-format": "{title}",
-    "on-click": "activate",
-    "on-click-middle": "close",
-    "rewrite": {
-      "Firefox Web Browser": "Firefox",
-      "Kitty": "Terminal"
-  }
+    // Modules configuration
+    "clock#week": {
+        "format": "{:%A}"
     },
 
-    "clock": {
-    "format": "{:%a %b %d | %I:%M %p}"
+    "clock#date": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "󰸗 {:%B-%d-%Y}"
     },
 
-    "battery": {
-    "bat": "BAT1",
-    "interval": 60,
-    "states": {
-    "warning": 40,
-    "critical": 20
-    },
-    "format": "BAT {capacity}",
-    "max-length": 25
-    },
-
-    "pulseaudio": {
-    "format": "VOL {volume}",
-    "format-bluetooth": "VOL {volume}",
-    "format-muted": "VOL MUTED",
-    "scroll-step": 5,
-    "on-click-right": "pavucontrol",
-    "on-click": "pamixer -t",
-    "ignored-sinks": ["Easy Effects Sink"]
+    "clock#time": {
+        "format": " {:%I:%M %p}"
     },
 
     "tray": {
-      "icon-size": 16,
-      "spacing": 10,
+        "spacing": 10,
+    },
+
+    "battery": {
+        "states": {
+            "warning": 40,
+            "critical": 15
+        },
+        "format": " {icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": " {icon} {time}",
+        "format-icons": [ "", "", "", "", "" ]
+    },
+
+    "network": {
+        "format-wifi": " Connected",
+        "format-alt": " {essid} ({signalStrength}%)",
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+        "tooltip-format": "󱘖 {ifname} via {gwaddr}",
+        "format-linked": "󱘖 {ifname} (No IP)",
+        "format-disconnected": "󰖪 Disconnected",
+        "on-click-middle": "kitty -e nmtui",
+    },
+
+    "pulseaudio": {
+        "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-icons": {
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "memory": {
+        "format": " {}%",
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false,
+    },
+
+    "custom/media": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     },
 }
