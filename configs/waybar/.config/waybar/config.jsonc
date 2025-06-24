@@ -11,10 +11,9 @@
 
     // Choose the order of the modules
     "modules-left": [
-        "clock#week",
-        "clock#date",
-        "clock#time",
-        "niri/workspaces"
+        "clock",
+        "niri/workspaces",
+        "wlr/taskbar"
     ],
     "modules-center": [
     ],
@@ -28,17 +27,35 @@
     ],
 
     // Modules configuration
-    "clock#week": {
-        "format": "{:%A}"
-    },
-
-    "clock#date": {
+    "clock": {
+        "format": "{:%A\t󰸗 %B-%d-%Y\t %I:%M %p}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "󰸗 {:%B-%d-%Y}"
     },
 
-    "clock#time": {
-        "format": " {:%I:%M %p}"
+    "niri/workspaces": {
+        "format": "{}",
+        "rewrite": {
+        "(.*) - Mozilla Firefox": "🌎 $1",
+        "(.*) - zsh": "> [$1]"
+        }
+    },
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 14,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+            "Alacritty"
+        ],
+        "app_ids-mapping": {
+          "firefoxdeveloperedition": "firefox-developer-edition"
+        },
+        "rewrite": {
+            "Firefox Web Browser": "Firefox",
+            "Foot Server": "Terminal"
+        },
     },
 
     "tray": {
@@ -52,7 +69,7 @@
         },
         "format": " {icon} {capacity}%",
         "format-full": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
+        "format-charging": "{icon}󱐋 {capacity}%",
         "format-plugged": " {capacity}%",
         "format-alt": " {icon} {time}",
         "format-icons": [ "", "", "", "", "" ]
@@ -65,7 +82,7 @@
         "tooltip-format": "󱘖 {ifname} via {gwaddr}",
         "format-linked": "󱘖 {ifname} (No IP)",
         "format-disconnected": "󰖪 Disconnected",
-        "on-click-middle": "kitty -e nmtui",
+        "on-click-right": "kitty -e nmtui",
     },
 
     "pulseaudio": {
@@ -99,14 +116,14 @@
             "default": "🎜"
         },
         "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
 
     "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "format": " {stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩",
+        "format-disconnected": " Disconnected",
+        "format-stopped": " {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped",
         "unknown-tag": "N/A",
         "interval": 5,
         "consume-icons": {

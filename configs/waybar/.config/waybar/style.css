@@ -51,9 +51,6 @@ button:hover {
     background-color: #7f7e7f;
 }
 
-#workspaces button.empty {
-}
-
 #workspaces button.urgent {
     background-color: #eb4d4b;
 }
@@ -64,6 +61,7 @@ button:hover {
 #memory,
 #network,
 #pulseaudio,
+#mpd,
 #tray {
     background-color: @transparent;
     padding: 0 10px;
@@ -106,10 +104,6 @@ button:hover {
     animation-timing-function: steps(12);
     animation-iteration-count: infinite;
     animation-direction: alternate;
-}
-
-#tray {
-    background-color: @transparent;
 }
 
 #tray > .passive {
