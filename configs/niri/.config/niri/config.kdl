@@ -5,6 +5,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "gammastep-indicator"
 spawn-at-startup "nm-applet"
 spawn-at-startup "mpdscribble"
+spawn-at-startup "swww-daemon"
 
 // set cursor properties
 cursor {
@@ -49,8 +50,8 @@ output "eDP-1" {
     focus-at-startup
 }
 
-output "HDMI-A-1" {
-    mode "1920x1080@143.999"
+output "DP-1" {
+    mode "1920x1080@119.999"
     scale 1
     transform "normal"
     position x=1920 y=0
