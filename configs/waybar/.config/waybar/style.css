@@ -38,9 +38,9 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 0 10px;
+    padding: 0px;
     background-color: transparent;
-    color: #a0a0a0
+    color: #a0a0a0;
 }
 
 #workspaces button.focused {
@@ -74,7 +74,7 @@ button:hover {
 }
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
+.modules-left > widget:first-child > #clock {
     margin-left: 0;
 }
 

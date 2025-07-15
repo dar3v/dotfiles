@@ -28,7 +28,7 @@
 
     // Modules configuration
     "clock": {
-        "format": "{:%A\t󰸗 %B-%d-%Y\t %I:%M %p}",
+        "format": "{:%A   󰸗 %B-%d-%Y    %I:%M %p}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     },
 

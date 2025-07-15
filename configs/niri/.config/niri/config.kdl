@@ -3,6 +3,8 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "kitty"
 spawn-at-startup "waybar"
 spawn-at-startup "gammastep-indicator"
+spawn-at-startup "nm-applet"
+spawn-at-startup "mpdscribble"
 
 // set cursor properties
 cursor {
@@ -16,6 +18,10 @@ input {
     keyboard {
         repeat-delay 200
         repeat-rate 30
+        xkb {
+            layout "us"
+            // variant "colemak_dh_ortho"
+        }
     }
     touchpad {
         tap
@@ -198,8 +204,8 @@ layout {
     struts {
         // left 64
         // right 64
-        top 8
-        bottom 8
+        // top 8
+        // bottom 8
     }
 }
 
