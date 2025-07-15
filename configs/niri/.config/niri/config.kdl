@@ -1,6 +1,5 @@
 // spawn at startup
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "kitty"
 spawn-at-startup "waybar"
 spawn-at-startup "gammastep-indicator"
 spawn-at-startup "nm-applet"
@@ -19,9 +18,10 @@ input {
     keyboard {
         repeat-delay 200
         repeat-rate 30
+        track-layout "global"
         xkb {
             layout "us"
-            // variant "colemak_dh_ortho"
+            variant "qwerty,colemak_dh_ortho"
         }
     }
     touchpad {
