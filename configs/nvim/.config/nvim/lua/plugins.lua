@@ -12,6 +12,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- import everything from `kickstart/plugins`
   { import = 'kickstart.plugins' },
+  { import = 'kickstart.plugins.lsp' },
 
   require 'other-stuff.plugins.neo-tree',
   { import = 'custom.plugins' },

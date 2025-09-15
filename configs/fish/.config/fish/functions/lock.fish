@@ -1,4 +1,4 @@
-function lock --wraps='systemctl suspend && waylock' --description 'alias lock=systemctl suspend && waylock'
-  systemctl suspend && waylock $argv
+function lock --wraps='systemctl suspend && hyprlock' --wraps='hyprlock && systemctl suspend' --description 'alias lock=systemctl suspend && hyprlock'
+  systemctl suspend && hyprlock $argv
         
 end

@@ -94,9 +94,9 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- configure tabs to be set as spaces
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
-vim.o.expandtab = true
+-- vim.o.tabstop = 2
+-- vim.o.shiftwidth = 2
+-- vim.o.expandtab = true
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

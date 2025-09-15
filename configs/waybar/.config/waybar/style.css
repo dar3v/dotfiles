@@ -1,84 +1,116 @@
-@define-color background #181616;
-@define-color foreground #c5c9c5;
-@define-color bg #0c0c0c;
-
 * {
-  font-family: "FantasqueSansM Nerd Font";
-  font-weight: 600;
-  font-size: 12px;
-  }
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: 'Symbols Nerd Font Mono', 'CodeNewRoman Nerd Font Mono';
+    font-size: 13px;
+    font-weight: 600;
+}
 
 window#waybar {
-  background: transparent;
-  color: @foreground;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    transition-property: background-color;
+    transition-duration: .5s;
 }
 
-#tags {
-  background-color: @background;
-  margin: 5px;
-  margin-left: 10px;
+window#waybar.hidden {
+    opacity: 0.2;
 }
 
-#tags button {
-  color: #767976;
-  padding: 5px 10px;
+/*
+window#waybar.empty {
+    background-color: transparent;
 }
-#tags button.focused {
-    color: #24283b;
-    background-color: #5d5c5c;
+window#waybar.solo {
+    background-color: #FFFFFF;
 }
-#tags button.occupied {
-  color: #c5c9c5;
-}
-#tags button:hover {
-  background-color: #4d4c4c;
-  color: #c0caf5;
-}
-#tags button.urgent {
-  background-color: orange;
+*/
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
 }
 
-#taskbar {
-  background-color: @background;
-  margin: 5px;
-  margin-left: 10px;
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
 }
 
-#clock {
-  background-color: @background;
-  margin-right: 10px;
-  padding: 5px 10px;
+#workspaces button {
+    padding: 0px;
+    background-color: transparent;
+    color: #a0a0a0;
 }
 
-#battery {
-  background-color: @background;
-  padding: 5px 10px;
-  margin-bottom: 5px;
-}
-#battery.warning {
-  color: #9c9c00;
-}
-#battery.critical {
-  color: #5a0000;
-  font-weight: bolder;
-}
-#battery.charging {
-  color: #355a00;
+#workspaces button.focused {
+    color: #ffffff;
 }
 
-#pulseaudio {
-  background-color: @background;
-  padding: 5px 10px;
-  margin-bottom: 5px;
+#workspaces button:hover {
+    background-color: #7f7e7f;
 }
 
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#mpd,
 #tray {
-  background-color: @background;
-  padding: 5px 10px;
-  margin-bottom: 5px;
+    background-color: @transparent;
+    padding: 0 10px;
+    color: #ffffff;
 }
 
-/**/
-/* #separator { */
-/*   background-color: @background; */
-/* } */
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #clock {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#battery.charging {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
