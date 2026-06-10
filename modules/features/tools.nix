@@ -17,6 +17,7 @@
         grc # generic log colourer
         kitty # terminal emulator
 
+        devenv # devenv
         pnpm
         nodejs
         rustup
@@ -33,6 +34,12 @@
         enableFishIntegration = true;
         git = true;
         colors = "auto";
+      };
+
+      programs.direnv = {
+        enable = true;
+        enableFishIntegration = true;
+        silent = true;
       };
 
       # link kitty configs
