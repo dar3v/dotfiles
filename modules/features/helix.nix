@@ -9,8 +9,9 @@
       ];
 
       programs.helix = {
-        package = pkgs.evil-helix;
         enable = true;
+        defaultEditor = true;
+        package = pkgs.evil-helix;
         settings = {
           theme = "ashen";
         };
