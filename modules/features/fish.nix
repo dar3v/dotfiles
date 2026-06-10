@@ -52,4 +52,8 @@
         ];
       };
     };
+  flake.nixosModules.fish = { ... }: {
+    # i think i need this so that completions work properly
+    programs.fish.enable = true;
+  };
 }
