@@ -1,4 +1,4 @@
-{ ... }:
+{ self, inputs, ... }:
 {
   # niri wayland compositor, gui app bundle, xdg portal config, and font stack
   flake.nixosModules.niri =
@@ -8,7 +8,6 @@
 
       environment.systemPackages = with pkgs; [
         xwayland-satellite # xwayland support for niri
-        kitty
         mpv
         imv
         transmission_4-gtk
@@ -43,5 +42,16 @@
           "Fira Code"
         ];
       };
+    };
+
+  # separate homeModule
+  # enables noctalia and links niri config.kdl
+  flake.homeModules.niri =
+    { ... }:
+    {
+      imports = [ inputs.noctalia.homeModules.default ];
+      programs.noctalia.enable = true;
+
+      # home.file.".config/niri/config.kdl".source = self + "/config/niri/config.kdl";
     };
 }

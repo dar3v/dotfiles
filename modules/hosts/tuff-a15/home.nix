@@ -19,9 +19,11 @@
     { ... }:
     {
       imports = [
+        self.homeModules.niri
         self.homeModules.helix
         self.homeModules.zed
         self.homeModules.fish
+        self.homeModules.zellij
         self.homeModules.yazi
         self.homeModules.tools
         self.homeModules.zenBrowser

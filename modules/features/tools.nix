@@ -1,7 +1,11 @@
-{ ... }:
+{ self, ... }:
 {
-  # general cli toolbox: shell utilities, pager, tui git client, and dev runtimes
-  # also sets default editor and pager via session variables
+  # general cli toolbox:
+  # - shell utilities,
+  # - terminal utilities,
+  # - dev runtimes,
+  # also sets some session variables
+  # and links relevant config files to .config/
   flake.homeModules.tools =
     { pkgs, ... }:
     {
@@ -11,18 +15,13 @@
         btop # resource monitor
         tldr # short man pages
         grc # generic log colourer
-        ov # feature-rich pager
+        kitty # terminal emulator
 
         pnpm
         nodejs
         rustup
         uv # fast python package manager
       ];
-
-      home.sessionVariables = {
-        EDITOR = "hx";
-        PAGER = "ov";
-      };
 
       programs.zoxide = {
         enable = true;
@@ -34,6 +33,12 @@
         enableFishIntegration = true;
         git = true;
         colors = "auto";
+      };
+
+      # link kitty configs
+      home.file.".config/kitty" = {
+        source = self + "/config/kitty";
+        recursive = true;
       };
     };
 }
