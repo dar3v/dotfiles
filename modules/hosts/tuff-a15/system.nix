@@ -21,15 +21,20 @@
       home-manager.users.dar3v = self.homeModules."users.dar3v.home";
 
       # --- nix daemon ---
-      nix.settings.experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-
-      nix.gc = {
-        automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 7d";
+      nix = {
+        settings.experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+        gc = {
+          automatic = true;
+          dates = "weekly";
+          options = "--delete-older-than 7d";
+        };
+        settings.trusted-users = [
+          "root"
+          "dar3v"
+        ];
       };
 
       nixpkgs.config.allowUnfree = true;
