@@ -16,6 +16,7 @@
         self.nixosModules.nixLd
         self.nixosModules.niri
         self.nixosModules.fish
+        self.nixosModules.steam
       ];
 
       home-manager.users.dar3v = self.homeModules."users.dar3v.home";
