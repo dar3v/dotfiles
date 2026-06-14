@@ -10,13 +10,35 @@
         xwayland-satellite # xwayland support for niri
         mpv
         imv
+        zathura
+        readest
         transmission_4-gtk
         ungoogled-chromium
-        vesktop
       ];
 
-      xdg.portal.config.niri = {
-        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+      xdg.portal = {
+        enable = true;
+        xdgOpenUsePortal = true;
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-gnome
+          xdg-desktop-portal-wlr
+        ];
+        config = {
+          common = {
+            default = [
+              "wlr"
+              "gtk"
+            ];
+          };
+          niri = {
+            "org.freedesktop.impl.portal.FileChooser" = [
+              "gnome"
+              "gtk"
+            ];
+            "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
+            "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
+          };
+        };
       };
 
       fonts.packages = with pkgs; [
@@ -26,6 +48,10 @@
         noto-fonts
         noto-fonts-cjk-sans
         noto-fonts-color-emoji
+
+        nerd-fonts.jetbrains-mono
+        nerd-fonts.fira-code
+        nerd-fonts.commit-mono
       ];
 
       fonts.fontconfig.defaultFonts = {
@@ -51,6 +77,15 @@
     {
       imports = [ inputs.noctalia.homeModules.default ];
       programs.noctalia.enable = true;
+
+      programs.zathura = {
+        enable = true;
+        options = {
+          selection-clipboard = "clipboard";
+        };
+      };
+
+      programs.vesktop.enable = true;
 
       # home.file.".config/niri/config.kdl".source = self + "/config/niri/config.kdl";
     };

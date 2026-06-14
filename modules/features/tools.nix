@@ -16,6 +16,7 @@
         tldr # short man pages
         grc # generic log colourer
         kitty # terminal emulator
+        obsidian
 
         devenv # devenv
         pnpm
