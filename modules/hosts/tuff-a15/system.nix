@@ -17,6 +17,7 @@
         self.nixosModules.niri
         self.nixosModules.fish
         self.nixosModules.steam
+        self.nixosModules.docker
       ];
 
       home-manager.users.dar3v = self.homeModules."users.dar3v.home";
@@ -91,10 +92,17 @@
         pulse.enable = true;
       };
 
+      hardware.nvidia-container-toolkit.enable = true;
+      hardware.amdgpu.opencl.enable = true;
+
       # --- users ---
       users.users.dar3v = {
         isNormalUser = true;
-        extraGroups = [ "wheel" ];
+        extraGroups = [
+          "wheel"
+          "docker"
+          "video"
+        ];
       };
 
       # minimal system-wide packages
@@ -105,6 +113,8 @@
         fastfetch
         librewolf
         tree
+        file
+        nvidia-container-toolkit
       ];
 
       system.stateVersion = "26.11";
