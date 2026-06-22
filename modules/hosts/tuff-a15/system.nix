@@ -111,7 +111,7 @@
         pavucontrol
         git
         fastfetch
-        librewolf
+        mullvad-browser
         tree
         file
         nvidia-container-toolkit
