@@ -22,6 +22,7 @@
         pnpm
         nodejs
         rustup
+        zig
         uv # fast python package manager
       ];
 
