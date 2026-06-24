@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   flake.nixosModules.docker = {...}: {
     virtualisation.docker = {
       enable = true;
@@ -13,5 +13,9 @@
         ];
       };
     };
+
+    # prevent docker from starting automatically on boot
+    systemd.services.docker.wantedBy = lib.mkForce [];
+    systemd.services.docker.notSocketActivated = false;
   };
 }
