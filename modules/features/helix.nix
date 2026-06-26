@@ -22,6 +22,22 @@
           auto-format = true;
           formatter.command = lib.getExe pkgs.alejandra;
         }
+        {
+          name = "svelte";
+          auto-format = true;
+          formatter = {
+            command = "biome";
+            args = ["format" "--stdin-file-path" "index.svelte"];
+          };
+        }
+        {
+          name = "typescript";
+          auto-format = true;
+          formatter = {
+            command = "biome";
+            args = ["format" "--stdin-file-path" "index.ts"];
+          };
+        }
       ];
     };
   };
