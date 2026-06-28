@@ -25,19 +25,13 @@
 
     # --- nix daemon ---
     nix = {
-      settings.experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
+      settings.experimental-features = ["nix-command" "flakes"];
       gc = {
         automatic = true;
         dates = "weekly";
         options = "--delete-older-than 7d";
       };
-      settings.trusted-users = [
-        "root"
-        "dar3v"
-      ];
+      settings.trusted-users = ["root" "dar3v"];
     };
 
     nixpkgs.config.allowUnfree = true;
@@ -57,15 +51,9 @@
 
     # --- btrfs mount options ---
     fileSystems = {
-      "/".options = [
-        "compress=zstd:3"
-        "noatime"
-      ];
+      "/".options = ["compress=zstd:3" "noatime"];
       "/home".options = ["compress=zstd:3"];
-      "/nix".options = [
-        "compress=zstd:3"
-        "noatime"
-      ];
+      "/nix".options = ["compress=zstd:3" "noatime"];
     };
     services.fstrim.enable = true;
 

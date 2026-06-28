@@ -13,10 +13,12 @@
       imv
       zathura
       readest
+      gpu-screen-recorder
       transmission_4-gtk
       ungoogled-chromium
     ];
 
+    services.gnome.gnome-keyring.enable = true;
     xdg.portal = {
       enable = true;
       xdgOpenUsePortal = true;
@@ -36,8 +38,9 @@
             "gnome"
             "gtk"
           ];
-          "org.freedesktop.impl.portal.ScreenCast" = ["wlr"];
+          "org.freedesktop.impl.portal.ScreenCast" = ["gtk"];
           "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
+          "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
         };
       };
     };
